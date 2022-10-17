@@ -7,7 +7,7 @@ const Register = () => {
 
   return (
     <div className="container row mx-auto">
-      <div className="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-12 col-12 text-center d-flex flex-column mx-auto">
+      <div className="col-xxl-4 col-xl-5 col-lg-6 col-md-8 col-sm-12 col-12 text-center d-flex flex-column mx-auto">
         <h1 className='fw-bold'>Register</h1>
         <h5>Create your account</h5>
         <input
