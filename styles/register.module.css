@@ -13,11 +13,9 @@
 }
 
 .inputField::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: gray;
   font-weight: 500;
   opacity: 0.7;
-  /* Firefox */
 }
 
 .name {
@@ -85,7 +83,7 @@
   text-align: center;
 }
 
-.continue_text:after {
+.continue_text::after {
   content: " ";
   display: block;
   height: 1px;
@@ -96,67 +94,11 @@
   background: #000;
 }
 
-.continue_text:before {
+.continue_text::before {
   content: " ";
   display: block;
   height: 1px;
   width: 110px;
   position: absolute;
   top: 55%;
-  right: 0;
-  background: #000;
-}
-
-.register_options {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-
-.register_options input {
-  width: 50px !important;
-  height: 50px;
-  border: 2px solid gainsboro;
-  border-radius: 10px;
-}
-
-
-.register_font_weight {
-  font-weight: 500;
-}
-
-.login_now_text {
-  color: #1032b5;
-  font-weight: 700;
-}
-
-.password_field {
-  position: relative;
-}
-
-@media (max-width: 600px) {
-
-  .continue_text:after,
-  .continue_text:before {
-    width: 100px;
-  }
-}
-
-@media (max-width: 500px) {
-
-  .continue_text:after,
-  .continue_text:before {
-    width: 120px;
-    top: 50%;
-  }
-}
-
-@media (max-width: 380px) {
-
-  .continue_text:after,
-  .continue_text:before {
-    width: 70px;
-    top: 55%;
-  }
 }
