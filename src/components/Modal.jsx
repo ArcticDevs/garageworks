@@ -43,15 +43,15 @@ const Modal = ({ show, onClose }) => {
                         {togglePage ?
                             <>
                                 <Register />
-                                <p className={`${styles.model_text_toggle} text-center`}>
+                                <p className={`${styles.model_text_toggle} text-center mt-3`}>
                                     Already have an account?{" "}
                                     <span className={styles.model_text_toggle_btn} onClick={() => setTogglePage(false)}>Login now</span>
                                 </p>
                             </>
                             :
                             <>
-                                <Login />
-                                <p className={`${styles.model_text_toggle} text-center`}>
+                                <Login closeFunc={onClose} />
+                                <p className={`${styles.model_text_toggle} text-center mt-3`}>
                                     Don`t have an account?{" "}
                                     <span className={styles.model_text_toggle_btn} onClick={() => setTogglePage(true)}>Register now</span>
                                 </p>

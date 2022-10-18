@@ -1,12 +1,67 @@
 import React, { useState } from "react";
 import styles from "../../styles/login.module.css";
+import OtpInput from 'react-otp-input';
+import toast from "../components/Toast";
 
-const Login = () => {
+const Login = ({ closeFunc }) => {
 
     const [loginType, setLoginType] = useState(false)
 
     const [showpw, setShowpw] = useState(false);
+    const [showErrorOtp, setShowErrorOtp] = useState(false);
+    const [showErrorNum, setShowErrorNum] = useState(false);
     const [showcpw, setShowcpw] = useState(false);
+
+    const [otpValue, setOtpValue] = useState("");
+
+    const handleOtpState = (data) => {
+        setOtpValue(data)
+        setShowErrorOtp(false)
+    }
+
+    const [formData, setFormData] = useState({
+        number: '',
+        otp: "",
+        remember: false,
+    })
+
+    const { number } = formData;
+
+    const handleOnchange = (e) => {
+        setShowErrorNum(false)
+        if (e.target.value.length > 10)
+            setFormData({ ...formData, [e.target.id]: e.target.value.slice(0, 10) })
+        else
+            setFormData({ ...formData, [e.target.id]: e.target.value })
+    }
+
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
+
+        if (number !== '1234567899') {
+            setShowErrorNum(true)
+        }
+
+        else if (otpValue === "" || otpValue.length !== 4 || otpValue !== "1234") {
+            setShowErrorOtp(true)
+        }
+
+        else {
+            setShowErrorOtp(false)
+            setShowErrorNum(false)
+            formData.otp = otpValue;
+            if (number === '1234567899' && otpValue === "1234") {
+                toast({ type: "success", message: "You are logged in" });
+                closeFunc();
+                console.log(formData)
+            }
+        }
+
+
+    }
+
+    // Loop over them and prevent submission
+
 
     return (
         <div className={`${styles.login} col-12 text-center d-flex flex-column`}>
@@ -16,14 +71,28 @@ const Login = () => {
                 <button onClick={() => setLoginType(false)} className={loginType ? styles.switch_inactive : styles.switch_active}>Email</button>
                 <button onClick={() => setLoginType(true)} className={loginType ? styles.switch_active : styles.switch_inactive}>Phone Number</button>
             </div> */}
-            <form action="">
+            <form className="needs-validation" onSubmit={handleOnSubmit}>
                 <input
-                    type="text"
+                    type="number"
+                    id="number"
+                    onChange={handleOnchange}
+                    value={number}
                     className={`${styles.inputField} ${styles.phone} col-12 mx-auto mt-3`}
                     placeholder="input your phone number"
-                    autoComplete="off"
+                    required
                 />
-                <div className={styles.password_field}>
+                {showErrorNum && <h4 className={styles.invalid}>Please provide a valid Number.</h4>}
+                <div className={`${styles.register_options} mt-3`}>
+                    <OtpInput
+                        value={otpValue}
+                        onChange={(otp) => handleOtpState(otp)}
+                        numInputs={4}
+                        separator={<span>-</span>}
+                        isInputNum={true}
+                    />
+                </div>
+                {showErrorOtp && <h4 className={styles.invalid}>Please provide a valid OTP.</h4>}
+                {/* <div className={styles.password_field}>
                     <input
                         type={showpw ? "text" : "password"}
                         className={`${styles.inputField} ${styles.pw} col-12 mx-auto mt-3`}
@@ -53,7 +122,7 @@ const Login = () => {
                             />
                         </svg>
                     )}
-                </div>
+                </div> */}
                 <div className="d-flex align-items-center justify-content-between mt-3">
                     <div>
                         <input
@@ -62,17 +131,17 @@ const Login = () => {
                         />
                         <span className={styles.register_font_weight}>Remember me</span>
                     </div>
-                    <span className={styles.register_font_weight} style={{ cursor: 'pointer' }}>Forgot Password</span>
+                    {/* <span className={styles.register_font_weight} style={{ cursor: 'pointer' }}>Forgot Password</span> */}
                 </div>
-                <button className={`${styles.signup_btn} mt-3 w-100`}>Login</button>
+                <button type="submit" className={`${styles.signup_btn} mt-3 w-100`}>Login</button>
             </form>
-            <p className={`${styles.continue_text} mt-3`}>or continue with</p>
-            <div className={styles.register_options}>
+            {/* <p className={`${styles.continue_text} mt-3`}>or continue with</p> */}
+            {/* <div className={styles.register_options}>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import styles from "../../styles/register.module.css";
+import OtpInput from 'react-otp-input';
 
 const Register = () => {
     const [showpw, setShowpw] = useState(false);
     const [showcpw, setShowcpw] = useState(false);
+
+    const [otpValue, setOtpValue] = useState("");
+
+    const handleOtpState = (data) => {
+        setOtpValue(data)
+    }
 
     return (
         <div className="col-12 text-center d-flex flex-column w-100">
@@ -28,7 +35,16 @@ const Register = () => {
                     placeholder="input your phone number"
                     autoComplete="off"
                 />
-                <div className={styles.password_field}>
+                <div className={`${styles.register_options} mt-3`}>
+                    <OtpInput
+                        value={otpValue}
+                        onChange={(otp) => handleOtpState(otp)}
+                        numInputs={4}
+                        separator={<span>-</span>}
+                        isInputNum={true}
+                    />
+                </div>
+                {/* <div className={styles.password_field}>
                     <input
                         type={showpw ? "text" : "password"}
                         className={`${styles.inputField} ${styles.pw} col-12 mx-auto mt-3`}
@@ -89,7 +105,7 @@ const Register = () => {
                             />
                         </svg>
                     )}
-                </div>
+                </div> */}
                 <div className="d-flex align-items-center justify-content-between mt-3">
                     <div>
                         <input
@@ -98,17 +114,17 @@ const Register = () => {
                         />
                         <span className={styles.register_font_weight}>Remember me</span>
                     </div>
-                    <span className={styles.register_font_weight} style={{ cursor: 'pointer' }}>Forgot Password</span>
+                    {/* <span className={styles.register_font_weight} style={{ cursor: 'pointer' }}>Forgot Password</span> */}
                 </div>
                 <button className={`${styles.signup_btn} mt-3`}>Sign up</button>
             </form>
-            <p className={`${styles.continue_text} mt-3`}>or continue with</p>
-            <div className={styles.register_options}>
+            {/* <p className={`${styles.continue_text} mt-3`}>or continue with</p> */}
+            {/* <div className={styles.register_options}>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </div> */}
         </div>
     );
 };
