@@ -12,26 +12,17 @@ const Login = () => {
         <div className={`${styles.login} col-12 text-center d-flex flex-column`}>
             <h1 className='fw-bold'>Welcome Back</h1>
             <h5>Login to your account</h5>
-            <div className={styles.login_switch}>
+            {/* <div className={styles.login_switch}>
                 <button onClick={() => setLoginType(false)} className={loginType ? styles.switch_inactive : styles.switch_active}>Email</button>
                 <button onClick={() => setLoginType(true)} className={loginType ? styles.switch_active : styles.switch_inactive}>Phone Number</button>
-            </div>
+            </div> */}
             <form action="">
-                {loginType ?
-                    <input
-                        type="text"
-                        className={`${styles.inputField} ${styles.phone} col-12 mx-auto mt-3`}
-                        placeholder="input your phone number"
-                        autoComplete="off"
-                    />
-                    :
-                    <input
-                        type="text"
-                        className={`${styles.inputField} ${styles.email} col-12 mx-auto mt-3`}
-                        placeholder="input your email"
-                        autoComplete="off"
-                    />
-                }
+                <input
+                    type="text"
+                    className={`${styles.inputField} ${styles.phone} col-12 mx-auto mt-3`}
+                    placeholder="input your phone number"
+                    autoComplete="off"
+                />
                 <div className={styles.password_field}>
                     <input
                         type={showpw ? "text" : "password"}
@@ -77,6 +68,7 @@ const Login = () => {
             </form>
             <p className={`${styles.continue_text} mt-3`}>or continue with</p>
             <div className={styles.register_options}>
+                <span></span>
                 <span></span>
                 <span></span>
                 <span></span>

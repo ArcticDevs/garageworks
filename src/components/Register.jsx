@@ -107,6 +107,7 @@ const Register = () => {
                 <span></span>
                 <span></span>
                 <span></span>
+                <span></span>
             </div>
         </div>
     );

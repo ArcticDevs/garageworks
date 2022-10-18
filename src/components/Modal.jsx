@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import useBreakpoints from "../cutomHooks/useBreakpoints"
 import useMountTransition from "../cutomHooks/useMountTransition";
 import Login from "./Login";
-import Register from "./register";
+import Register from "./Register";
 import styles from '../../styles/modal.module.css'
 
 const Modal = ({ show, onClose }) => {
