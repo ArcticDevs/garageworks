@@ -13,10 +13,9 @@
   }
   
   .inputField::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: gray;
     font-weight: 500;
-    opacity: 0.7; /* Firefox */
+    opacity: 0.7;
   }
   
   .name {
@@ -81,7 +80,7 @@
     text-align: center;
   }
   
-  .continue_text:after {
+  .continue_text::after {
     content: " ";
     display: block;
     height: 1px;
@@ -92,7 +91,7 @@
     background: #000;
   }
   
-  .continue_text:before {
+  .continue_text::before {
     content: " ";
     display: block;
     height: 1px;
