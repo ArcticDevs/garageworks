@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from '../../../styles/account.module.css'
 import OtpInput from 'react-otp-input';
+import { RiEditFill } from 'react-icons/ri'
 
 const Account = ({ origNum, moveBack }) => {
 
@@ -46,11 +47,27 @@ const Account = ({ origNum, moveBack }) => {
         console.log(formData)
     }
 
+    const handleLocation = () => {
+        setFormData({...formData, pincode: "201310", house: "D12", road: "Pari-Chowk, Greater Noida" });
+    }
+
     return (
         <div className='pb-5'>
             <div className={styles.account_head}>
-                <h3>{origNum}</h3>
-                <button onClick={() => moveBack(false)}>change?</button>
+                {/* <h3>{origNum}</h3>
+                <button onClick={() => moveBack(false)}>change?</button> */}
+                <input
+                    type="text"
+                    className={`${styles.inputField} ${styles.phone} col-8 mt-3`}
+                    placeholder={origNum}
+                    autoComplete="off"
+                    value={origNum}
+                    id='num'
+                    disabled
+                />
+                <button onClick={() => moveBack(false)} className='col-1'>
+                    <RiEditFill />
+                </button>
             </div>
             <form onSubmit={handleOnSubmit}>
                 <input
@@ -80,6 +97,7 @@ const Account = ({ origNum, moveBack }) => {
                     onChange={handleOnchange}
                     value={number}
                 />
+                {showErrorNum && <h4 className={styles.invalid}>Please provide a valid Number.</h4>}
                 {showOtpField &&
                     <div className={`${styles.register_options} mt-3`}>
                         <OtpInput
@@ -91,10 +109,11 @@ const Account = ({ origNum, moveBack }) => {
                         />
                     </div>
                 }
-                <div>
+                {showErrorOtp && <h4 className={styles.invalid}>Please provide a valid OTP.</h4>}
+                <div className={styles.address_form}>
                     <div className={styles.address_head}>
                         <h3>Address</h3>
-                        <button>Locate you?</button>
+                        <button onClick={handleLocation}>Locate you?</button>
                     </div>
                     <input
                         type="text"
@@ -124,6 +143,15 @@ const Account = ({ origNum, moveBack }) => {
                         value={road}
                         onChange={handleOnchange}
                     />
+                </div>
+                <div className="d-flex align-items-center justify-content-between my-3">
+                    <div>
+                        <input
+                            type="checkbox"
+                            className={`${styles.input_checkbox} me-2`}
+                        />
+                        <span className={styles.register_font_weight}>Use this address for booking service</span>
+                    </div>
                 </div>
                 <button className={`${styles.signup_btn} mt-3`}>Sign up</button>
             </form>
