@@ -1,0 +1,158 @@
+.account_head {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.account_head h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.account_head button {
+    border: none;
+    background-color: transparent;
+    color: #1032b5;
+    font-size: 16px;
+}
+
+.address_head {
+    position: relative;
+    display: flex;
+    margin: 50px 0 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.address_head h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.address_head button {
+    position: relative;
+    display: block;
+    border: none;
+    background-color: transparent;
+    color: #1032b5;
+    font-size: 16px;
+}
+
+.inputField {
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 15px 50%;
+    text-indent: 40px;
+    border: none;
+    background-color: rgb(240, 240, 240);
+    padding: 15px 5px;
+    border-radius: 10px;
+    outline: none;
+    color: gray;
+    font-weight: 500;
+  }
+  
+  .inputField::placeholder {
+    color: gray;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+  
+  .name {
+    background-image: url("../src/assets/user.png");
+  }
+  
+  .email {
+    background-image: url("../src/assets/email.png");
+    background-size: 30px;
+    background-position: 10px 50%;
+  }
+  
+  .phone {
+    background-image: url("../src/assets/phone.png");
+  }
+  
+  .pw {
+    background-image: url("../src/assets/padlock.png");
+  }
+  
+  .password_field {
+    position: relative !important;
+  }
+  
+  .show_hide_pw_icon {
+    cursor: pointer;
+    position: absolute;
+    width: 25px;
+    top: 30px !important;
+    right: 25px;
+    z-index: 999 !important;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+  }
+  
+  .input_checkbox {
+    transform: scale(1.5);
+    padding: 0.5%;
+    margin-top: 2px;
+  }
+  
+  .signup_btn {
+    width: 100%;
+    border: none;
+    background-color: #1032b5;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: all 300ms;
+  }
+  
+  .signup_btn:hover {
+    opacity: 0.8;
+  }
+  
+  .continue_text {
+    font-weight: 400;
+    position: relative;
+    text-align: center;
+  }
+  
+  .continue_text::after {
+    content: " ";
+    display: block;
+    height: 1px;
+    width: 110px;
+    position: absolute;
+    top: 55%;
+    left: 0;
+    background: #000;
+  }
+  
+  .continue_text::before {
+    content: " ";
+    display: block;
+    height: 1px;
+    width: 110px;
+    position: absolute;
+    top: 55%;
+  }
+  
+  .register_options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .register_options input {
+    width: 50px !important;
+    height: 50px;
+    border: 2px solid gainsboro;
+    border-radius: 10px;
+  }
