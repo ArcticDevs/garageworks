@@ -8,6 +8,8 @@ const Account = ({ origNum, moveBack }) => {
     const [showErrorOtp, setShowErrorOtp] = useState(false);
     const [showErrorNum, setShowErrorNum] = useState(false);
 
+    const [checkboxValue, setCheckboxValue] = useState(true);
+
     const [showOtpField, setShowOtpField] = useState(false);
 
     const [otpValue, setOtpValue] = useState("");
@@ -48,7 +50,7 @@ const Account = ({ origNum, moveBack }) => {
     }
 
     const handleLocation = () => {
-        setFormData({...formData, pincode: "201310", house: "D12", road: "Pari-Chowk, Greater Noida" });
+        setFormData({ ...formData, pincode: "201310", house: "D12", road: "Pari-Chowk, Greater Noida" });
     }
 
     return (
@@ -58,14 +60,14 @@ const Account = ({ origNum, moveBack }) => {
                 <button onClick={() => moveBack(false)}>change?</button> */}
                 <input
                     type="text"
-                    className={`${styles.inputField} ${styles.phone} col-8 mt-3`}
+                    className={`${styles.inputField} ${styles.phone} col-10 mt-3`}
                     placeholder={origNum}
                     autoComplete="off"
                     value={origNum}
                     id='num'
                     disabled
                 />
-                <button onClick={() => moveBack(false)} className='col-1'>
+                <button onClick={() => moveBack(false)} className='col-2'>
                     <RiEditFill />
                 </button>
             </div>
@@ -111,51 +113,59 @@ const Account = ({ origNum, moveBack }) => {
                     </div>
                 }
                 {showErrorOtp && <h4 className={styles.invalid}>Please provide a valid OTP.</h4>}
+
                 <div className={styles.address_form}>
                     <div className={styles.address_head}>
                         <h3>Address</h3>
                         <button onClick={handleLocation}>Locate you?</button>
                     </div>
-                    <input
-                        type="text"
-                        className={`${styles.inputField} col-12 mx-auto mt-3`}
-                        placeholder="Enter your Pincode"
-                        autoComplete="off"
-                        id='pincode'
-                        value={pincode}
-                        onChange={handleOnchange}
-                        required
-                    />
-                    <input
-                        type="text"
-                        className={`${styles.inputField} col-12 mx-auto mt-3`}
-                        placeholder="House/ Flat/ Office No."
-                        autoComplete="off"
-                        id='house'
-                        value={house}
-                        onChange={handleOnchange}
-                        required
-                    />
-                    <textarea
-                        rows={3}
-                        type="text"
-                        className={`${styles.inputField} col-12 mx-auto mt-3`}
-                        placeholder="Road Name/ Area/ Colony"
-                        autoComplete="off"
-                        id='road'
-                        value={road}
-                        onChange={handleOnchange}
-                        required
-                    />
-                </div>
-                <div className="d-flex align-items-center justify-content-between my-3">
-                    <div>
-                        <input
-                            type="checkbox"
-                            className={`${styles.input_checkbox} me-2`}
-                        />
-                        <span className={styles.register_font_weight}>Use this address for booking service</span>
+                    <div className="d-flex align-items-center justify-content-between my-3">
+                        <div>
+                            <input
+                                type="checkbox"
+                                className={`${styles.input_checkbox} me-2`}
+                                value={checkboxValue}
+                                checked={checkboxValue}
+                                onChange={() => setCheckboxValue(!checkboxValue)}
+                            />
+                            <span className={styles.register_font_weight}>Use this address for booking service</span>
+                        </div>
                     </div>
+                    {!checkboxValue &&
+                        <div>
+                            <input
+                                type="text"
+                                className={`${styles.inputField} col-12 mx-auto mt-3`}
+                                placeholder="Enter your Pincode"
+                                autoComplete="off"
+                                id='pincode'
+                                value={pincode}
+                                onChange={handleOnchange}
+                                required
+                            />
+                            <input
+                                type="text"
+                                className={`${styles.inputField} col-12 mx-auto mt-3`}
+                                placeholder="House/ Flat/ Office No."
+                                autoComplete="off"
+                                id='house'
+                                value={house}
+                                onChange={handleOnchange}
+                                required
+                            />
+                            <textarea
+                                rows={3}
+                                type="text"
+                                className={`${styles.inputField} col-12 mx-auto mt-3`}
+                                placeholder="Road Name/ Area/ Colony"
+                                autoComplete="off"
+                                id='road'
+                                value={road}
+                                onChange={handleOnchange}
+                                required
+                            />
+                        </div>
+                    }
                 </div>
                 <button className={`${styles.signup_btn} mt-3`}>Next</button>
             </form>

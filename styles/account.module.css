@@ -2,8 +2,8 @@
   position: relative;
   width: 100%;
   display: flex;
-  gap: 10px;
-  justify-content: center;
+  /* gap: 10px; */
+  /* justify-content: center; */
 }
 
 .account_head h3 {
@@ -12,11 +12,14 @@
 }
 
 .account_head button {
+  display: block;
+  position: relative;
   border: none;
+  padding: 0;
+  text-align: right;
   /* padding-left: 10px; */
   background-color: transparent;
   color: #000;
-  text-align: left;
   font-size: 30px;
 }
 
