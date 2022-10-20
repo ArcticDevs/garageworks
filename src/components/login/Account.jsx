@@ -78,6 +78,7 @@ const Account = ({ origNum, moveBack }) => {
                     value={name}
                     id='name'
                     onChange={handleOnchange}
+                    required
                 />
                 <input
                     type="email"
@@ -123,6 +124,7 @@ const Account = ({ origNum, moveBack }) => {
                         id='pincode'
                         value={pincode}
                         onChange={handleOnchange}
+                        required
                     />
                     <input
                         type="text"
@@ -132,6 +134,7 @@ const Account = ({ origNum, moveBack }) => {
                         id='house'
                         value={house}
                         onChange={handleOnchange}
+                        required
                     />
                     <textarea
                         rows={3}
@@ -142,6 +145,7 @@ const Account = ({ origNum, moveBack }) => {
                         id='road'
                         value={road}
                         onChange={handleOnchange}
+                        required
                     />
                 </div>
                 <div className="d-flex align-items-center justify-content-between my-3">
@@ -153,7 +157,7 @@ const Account = ({ origNum, moveBack }) => {
                         <span className={styles.register_font_weight}>Use this address for booking service</span>
                     </div>
                 </div>
-                <button className={`${styles.signup_btn} mt-3`}>Sign up</button>
+                <button className={`${styles.signup_btn} mt-3`}>Next</button>
             </form>
         </div>
     )
