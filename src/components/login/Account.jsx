@@ -2,28 +2,49 @@ import { useEffect, useState } from 'react'
 import styles from '../../../styles/account.module.css'
 import OtpInput from 'react-otp-input';
 import { RiEditFill } from 'react-icons/ri'
+import Map from '../Map';
 
 const Account = ({ origNum, moveBack }) => {
 
-    const [showErrorOtp, setShowErrorOtp] = useState(false);
+    const [allowLocation, setAllowLocation] = useState(false);
+    const [userLocation, setUserLocation] = useState({
+        lat: null,
+        lng: null,
+    });
+
+    // const [showErrorOtp, setShowErrorOtp] = useState(false);
     const [showErrorNum, setShowErrorNum] = useState(false);
 
     const [checkboxValue, setCheckboxValue] = useState(true);
 
-    const [showOtpField, setShowOtpField] = useState(false);
+    // const [showOtpField, setShowOtpField] = useState(false);
 
-    const [otpValue, setOtpValue] = useState("");
+    // const [otpValue, setOtpValue] = useState("");
 
-    const handleOtpState = (data) => {
-        setOtpValue(data)
-        setShowErrorOtp(false)
-    }
+    // const handleOtpState = (data) => {
+    //     setOtpValue(data)
+    //     setShowErrorOtp(false)
+    // }
+
+
+    useEffect(() => {
+        if ("geolocation" in navigator) {
+            setAllowLocation(false)
+        } else {
+            setAllowLocation(true)
+            navigator.geolocation.getCurrentPosition(function (position) {
+                setUserLocation({
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                })
+            });
+        }
+    }, [navigator.geolocation])
 
     const [formData, setFormData] = useState({
         number: '',
         name: '',
         email: '',
-        otp: "",
         pincode: "",
         house: "",
         road: "",
@@ -45,7 +66,6 @@ const Account = ({ origNum, moveBack }) => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        formData.otp = otpValue;
         console.log(formData)
     }
 
@@ -101,23 +121,17 @@ const Account = ({ origNum, moveBack }) => {
                     value={number}
                 />
                 {showErrorNum && <h4 className={styles.invalid}>Please provide a valid Number.</h4>}
-                {showOtpField &&
-                    <div className={`${styles.register_options} mt-3`}>
-                        <OtpInput
-                            value={otpValue}
-                            onChange={(otp) => handleOtpState(otp)}
-                            numInputs={4}
-                            separator={<span>-</span>}
-                            isInputNum={true}
-                        />
-                    </div>
-                }
-                {showErrorOtp && <h4 className={styles.invalid}>Please provide a valid OTP.</h4>}
 
                 <div className={styles.address_form}>
                     <div className={styles.address_head}>
                         <h3>Address</h3>
-                        <button onClick={handleLocation}>Locate you?</button>
+                        <button type='button' onClick={handleLocation}>Locate you?</button>
+                    </div>
+                    {allowLocation &&
+                        <h3 className={styles.invalid}>Please allow Location Access</h3>
+                    }
+                    <div className='my-4'>
+                        <Map userAddress={userLocation} />
                     </div>
                     <div className="d-flex align-items-center justify-content-between my-3">
                         <div>
@@ -154,7 +168,7 @@ const Account = ({ origNum, moveBack }) => {
                                 required
                             />
                             <textarea
-                                rows={3}
+                                rows={1}
                                 type="text"
                                 className={`${styles.inputField} col-12 mx-auto mt-3`}
                                 placeholder="Road Name/ Area/ Colony"
