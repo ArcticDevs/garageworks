@@ -56,10 +56,8 @@ const Account = ({ origNum, moveBack }) => {
         setShowErrorNum(false)
         if (e.target.value.length >= 10 && e.target.id === 'number') {
             setFormData({ ...formData, [e.target.id]: e.target.value.slice(0, 10) })
-            setShowOtpField(true)
         }
         else {
-            setShowOtpField(false)
             setFormData({ ...formData, [e.target.id]: e.target.value })
         }
     }
