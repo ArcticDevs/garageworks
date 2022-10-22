@@ -18,7 +18,7 @@ function Map({ userAddress }) {
     };
 
     return (
-        <LoadScript googleMapsApiKey={process.env.NEXT_APP_MAP_API_KEY}>
+        <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_MAP_API_KEY}>
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
