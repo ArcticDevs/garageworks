@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import styles from '../../../styles/account.module.css'
-import OtpInput from 'react-otp-input';
 import { RiEditFill } from 'react-icons/ri'
 import Map from '../Map';
 

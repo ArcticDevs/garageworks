@@ -26,7 +26,7 @@
 .address_head {
   position: relative;
   display: flex;
-  margin: 50px 0 5px;
+  margin: 20px 0 5px;
   justify-content: space-between;
   align-items: center;
 }
@@ -117,7 +117,7 @@ color: grey;
   margin-top: 2px;
 }
 
-.signup_btn {
+.signup_btn  {
   width: 100%;
   border: none;
   background-color: #1032b5;
@@ -176,4 +176,11 @@ color: grey;
   font-size: 12px;
   color: red;
   margin: 10px 0;
+}
+
+.mute{
+  font-size: 15px;
+  color: grey;
+  margin-top: -12px;
+  position: absolute;
 }

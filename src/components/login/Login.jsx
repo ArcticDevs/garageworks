@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import styles from "../../../styles/login.module.css";
 import OtpInput from 'react-otp-input';
 import toast from "../Toast";
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const Login = ({ setNum, moveAhead }) => {
-
+  const router = useRouter()
     const [showErrorOtp, setShowErrorOtp] = useState(false);
     const [showErrorNum, setShowErrorNum] = useState(false);
 
@@ -37,6 +39,11 @@ const Login = ({ setNum, moveAhead }) => {
         }
     }
 
+    
+    const handleModalClose = () => {
+        onClose();
+    }
+
     const handleOnSubmit = (e) => {
         e.preventDefault();
 
@@ -63,7 +70,7 @@ const Login = ({ setNum, moveAhead }) => {
 
     return (
         <div className={`${styles.login} col-12 text-center d-flex flex-column`}>
-            <h1 className='fw-bold'>Welcome</h1>
+            <h4 className='fw-bold'>Login / Sign-up to get up to ₹199 Off</h4>
             <form onSubmit={handleOnSubmit}>
                 <input
                     type="number"
@@ -84,10 +91,19 @@ const Login = ({ setNum, moveAhead }) => {
                             separator={<span>-</span>}
                             isInputNum={true}
                         />
+                
+
                     </div>
+                    
                 }
+
                 {showErrorOtp && <h4 className={styles.invalid}>Please provide a valid OTP.</h4>}
-                <button type="submit" className={`${styles.signup_btn} mt-3 w-100`}>Next</button>
+
+                <a href="/kycDetails" className={`${styles.signup_btn} btn mt-3 w-100 text-decoration-none` }>Next</a>
+                
+           
+                {/* <button onClick={() => router.push('/kycDetails',handleModalClose)}  className={`${styles.signup_btn} mt-3 w-100`}>Next</button> */}
+                
             </form>
         </div>
     );
