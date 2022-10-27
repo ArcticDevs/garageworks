@@ -99,7 +99,7 @@ const Login = ({ setNum, moveAhead }) => {
 
                 {showErrorOtp && <h4 className={styles.invalid}>Please provide a valid OTP.</h4>}
 
-                <a href="/kycDetails" className={`${styles.signup_btn} btn mt-3 w-100 text-decoration-none` }>Next</a>
+                <link href="/kycDetails" className={`${styles.signup_btn} btn mt-3 w-100 text-decoration-none` }>Next</link>
                 
            
                 {/* <button onClick={() => router.push('/kycDetails',handleModalClose)}  className={`${styles.signup_btn} mt-3 w-100`}>Next</button> */}

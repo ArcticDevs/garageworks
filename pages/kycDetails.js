@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, UseState } from "react";
 import styles from "../styles/account.module.css";
 import { RiEditFill } from "react-icons/ri";
 
 const kycDetails = ({ origNum, moveBack }) => {
-  const [allowLocation, setAllowLocation] = useState(false);
-  const [userLocation, setUserLocation] = useState({
+  const [allowLocation, setAllowLocation] = UseState(false);
+  const [userLocation, setUserLocation] = UseState({
     lat: null,
     lng: null,
   });
 
-  // const [showErrorOtp, setShowErrorOtp] = useState(false);
-  const [showErrorNum, setShowErrorNum] = useState(false);
+  // const [showErrorOtp, setShowErrorOtp] = UseState(false);
+  const [showErrorNum, setShowErrorNum] = UseState(false);
 
-  const [checkboxValue, setCheckboxValue] = useState(true);
+  const [checkboxValue, setCheckboxValue] = UseState(true);
 
-  // const [showOtpField, setShowOtpField] = useState(false);
+  // const [showOtpField, setShowOtpField] = UseState(false);
 
-  // const [otpValue, setOtpValue] = useState("");
+  // const [otpValue, setOtpValue] = UseState("");
 
   // const handleOtpState = (data) => {
   //     setOtpValue(data)
@@ -37,7 +37,7 @@ const kycDetails = ({ origNum, moveBack }) => {
   //     }
   // }, [navigator.geolocation])
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = UseState({
     number: "",
     name: "",
     email: "",
@@ -191,8 +191,9 @@ const kycDetails = ({ origNum, moveBack }) => {
                 required
               />
               <div id="pincode" className="form-text">
-                {" "}
-                Don't know your pincode? Click here to find your area
+                
+               <span>
+                 Dont know your pincode? Click here to find your area</span>
               </div>
               {/* <span className={`${styles.mute}`}>Don't know your pincode? Click here to find your area</span> */}
               <input
