@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../../context";
 import styles from "../../../styles/login.module.css";
 import OtpInput from 'react-otp-input';
-import toast from "../Toast";
+// import toast from "../Toast";
 import { useRouter } from 'next/router'
-import Link from 'next/link'
+// import Link from 'next/link'
 
-const Login = ({ setNum, moveAhead }) => {
-  const router = useRouter()
+const Login = () => {
+    const { state, changeFunc } = useContext(Context);
+
+    const { userDetails } = state;
+
+    const router = useRouter()
+
     const [showErrorOtp, setShowErrorOtp] = useState(false);
     const [showErrorNum, setShowErrorNum] = useState(false);
 
@@ -20,12 +26,19 @@ const Login = ({ setNum, moveAhead }) => {
     }
 
     const [formData, setFormData] = useState({
-        number: '',
-        otp: "",
-        remember: false,
+        number: userDetails.num || "",
+        otp: userDetails.otp || "",
     })
 
+
     const { number } = formData;
+
+    useEffect(() => {
+        if (number.length >= 10) {
+            setShowOtpField(true)
+            setOtpValue(userDetails.otp)
+        }
+    }, [number])
 
     const handleOnchange = (e) => {
         setShowErrorNum(false)
@@ -37,11 +50,6 @@ const Login = ({ setNum, moveAhead }) => {
             setShowOtpField(false)
             setFormData({ ...formData, [e.target.id]: e.target.value })
         }
-    }
-
-    
-    const handleModalClose = () => {
-        onClose();
     }
 
     const handleOnSubmit = (e) => {
@@ -61,8 +69,9 @@ const Login = ({ setNum, moveAhead }) => {
             formData.otp = otpValue;
             if (number === '1234567899' && otpValue === "1234") {
                 // toast({ type: "success", message: "You are logged in" });
-                setNum(number)
-                moveAhead(true)
+                changeFunc.login({ num: number, otp: otpValue })
+                changeFunc.modalShow(false)
+                router.push("/KycDetails")
                 console.log(formData)
             }
         }
@@ -91,19 +100,19 @@ const Login = ({ setNum, moveAhead }) => {
                             separator={<span>-</span>}
                             isInputNum={true}
                         />
-                
+
 
                     </div>
-                    
+
                 }
 
                 {showErrorOtp && <h4 className={styles.invalid}>Please provide a valid OTP.</h4>}
 
-                <link href="/kycDetails" className={`${styles.signup_btn} btn mt-3 w-100 text-decoration-none` }>Next</link>
-                
-           
-                {/* <button onClick={() => router.push('/kycDetails',handleModalClose)}  className={`${styles.signup_btn} mt-3 w-100`}>Next</button> */}
-                
+                {/* <Link href="/KycDetails" className={`${styles.signup_btn} btn mt-3 w-100 text-decoration-none`}>Next</Link> */}
+
+
+                <button type="submit" className={`${styles.signup_btn} mt-3 w-100`}>Next</button>
+
             </form>
         </div>
     );

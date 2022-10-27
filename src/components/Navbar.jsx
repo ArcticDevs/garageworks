@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { Context } from '../context'
 import Link from 'next/link'
 import Modal from './Modal'
 
 const Navbar = () => {
+	const { state, changeFunc } = useContext(Context);
+	console.log(state.modal)
 
-	const [showModal, setShowModal] = useState(false);
 
 	return (
 		<>
@@ -15,12 +17,12 @@ const Navbar = () => {
 							Navbar
 						</a>
 					</Link>
-					<button className='btn' onClick={() => setShowModal(true)}>
+					<button className='btn' onClick={changeFunc.modalToggle}>
 						Login
 					</button>
 				</div>
 			</nav>
-			<Modal show={showModal} onClose={() => setShowModal(false)} />
+			<Modal show={state.modal} onClose={() => changeFunc.modalShow(false)} />
 		</>
 	)
 }

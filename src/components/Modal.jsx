@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import useBreakpoints from "../cutomHooks/useBreakpoints"
 import useMountTransition from "../cutomHooks/useMountTransition";
-import LoginParent from "./login/LoginParent";
+import Login from "./login";
 import styles from '../../styles/modal.module.css'
 
 const Modal = ({ show, onClose }) => {
@@ -16,6 +16,7 @@ const Modal = ({ show, onClose }) => {
 
     useEffect(() => {
         setIsBrowser(true);
+        localStorage.setItem('modal',show)
 
         const closeOnEscapeKeyDown = e => {
             if ((e.charCode || e.keyCode) === 27) {
@@ -25,7 +26,7 @@ const Modal = ({ show, onClose }) => {
 
         document.body.addEventListener("keydown", closeOnEscapeKeyDown);
         return () => document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
-    }, [onClose]);
+    }, [onClose,show]);
 
     const handleModalClose = () => {
         onClose();
@@ -37,7 +38,7 @@ const Modal = ({ show, onClose }) => {
                 <div className={styles.modal}>
                     <div className={styles.modal_content}>
                         <button className={styles.modal_close_btn} onClick={handleModalClose}>X</button>
-                        <LoginParent />
+                        <Login />
                     </div>
                 </div>
             </div>
