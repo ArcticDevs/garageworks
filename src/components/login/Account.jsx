@@ -129,7 +129,7 @@ const Account = ({ origNum, moveBack }) => {
                         <h3 className={styles.invalid}>Please allow Location Access</h3>
                     }
                     <div className='my-4'>
-                        <Map userAddress={userLocation} />
+                        {/* <Map userAddress={userLocation} /> */}
                     </div>
                     <div className="d-flex align-items-center justify-content-between my-3">
                         <div>
