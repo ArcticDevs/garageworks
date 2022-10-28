@@ -71,7 +71,7 @@ const Login = () => {
                 // toast({ type: "success", message: "You are logged in" });
                 changeFunc.login({ num: number, otp: otpValue })
                 changeFunc.modalShow(false)
-                router.push("/KycDetails")
+                router.push("/kycDetails")
                 console.log(formData)
             }
         }
@@ -108,7 +108,7 @@ const Login = () => {
 
                 {showErrorOtp && <h4 className={styles.invalid}>Please provide a valid OTP.</h4>}
 
-                {/* <Link href="/KycDetails" className={`${styles.signup_btn} btn mt-3 w-100 text-decoration-none`}>Next</Link> */}
+                {/* <Link href="/kycDetails" className={`${styles.signup_btn} btn mt-3 w-100 text-decoration-none`}>Next</Link> */}
 
 
                 <button type="submit" className={`${styles.signup_btn} mt-3 w-100`}>Next</button>

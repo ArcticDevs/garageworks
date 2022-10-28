@@ -70,8 +70,8 @@
 }
 
 .inputField:disabled {
-background-color: #dadada;
-color: grey;
+  background-color: #dadada;
+  color: grey;
 }
 
 .name {
@@ -117,7 +117,7 @@ color: grey;
   margin-top: 2px;
 }
 
-.signup_btn  {
+.signup_btn {
   width: 100%;
   border: none;
   background-color: #1032b5;
@@ -178,9 +178,32 @@ color: grey;
   margin: 10px 0;
 }
 
-.mute{
+.mute {
   font-size: 15px;
   color: grey;
   margin-top: -12px;
   position: absolute;
+  white-space: nowrap;
+}
+
+.dontKnowPin {
+  color: rgb(27, 26, 26);
+  transition: all 30ms;
+}
+
+.dontKnowPin:hover {
+  cursor: pointer;
+  color: #000;
+  text-shadow: 0 0 0 #000;
+}
+
+@media (max-width: 400px) {
+  .dontKnowPin,
+  .mute {
+    font-size: 13px;
+  }
+
+  .mute{
+    margin-top: -10px;
+  }
 }
