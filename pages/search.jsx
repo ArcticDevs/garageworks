@@ -17,8 +17,6 @@ const Search = () => {
   const [selectedSpares, setSelectedSpares] = useState([]);
 
   const handleSelectingSpares = (selected) => {
-    console.log(selected);
-
     const tempArr1 = commonSpares;
     tempArr1 = tempArr1.map((curr) => curr !== selected ? curr : null )
 

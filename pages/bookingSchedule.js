@@ -25,7 +25,7 @@ export default function StaticDatePickerDemo() {
   ];
 
   return (
-    <div className="row d-flex flex-column ml-3" style={{ maxWidth: "100%", overflow: "hidden" ,"margin-left":"2px" }}>
+    <div className="row d-flex flex-column ml-3" style={{ maxWidth: "100%", overflow: "hidden" ,marginLeft:"-2px" }}>
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
         <h3 className="text-center mb-2">Select Preferred Date and Time</h3>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
