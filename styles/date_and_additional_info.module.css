@@ -1,0 +1,80 @@
+.date_head{
+    font-size: 16px;
+    color:rgb(106, 105, 105);
+    padding:10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    white-space:nowrap;
+}
+
+.timeSlot{
+    font-weight: bold;
+    padding:5px;
+    cursor: pointer;
+    margin:2px 10px;
+}
+
+.timeSlot_selected{
+    color:#fff;
+    background-color: rgb(73, 73, 244);
+    border-radius: 10px
+}
+
+.info_card{
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding:20px;
+    box-sizing: border-box;
+    transition: all 300ms;
+}
+
+.info_card h5{
+    font-weight: bold;
+}
+
+.info_card span{
+    color:grey
+}
+
+.info_card:hover{
+    box-shadow: inset 0 0 0 2px rgb(73, 73, 244);
+    cursor: pointer;
+    padding: 20px;
+}
+
+.info_card:hover h5{
+    color:rgb(73, 73, 244);
+}
+
+@media(max-width:768px){
+    .date_head{
+        text-align:center;
+    }
+    
+    .info_card{
+        box-shadow: inset 0 0 0 2px rgb(73, 73, 244);
+    }
+
+    .info_card h5{
+        color:rgb(73, 73, 244);
+    }
+
+
+}
+
+@media(max-width:430px){
+
+    .timeSlot{
+        padding:5px;
+        margin:2px 5px;
+    }
+
+    .info_card{
+        margin-bottom: 15px;
+        padding:10px;
+    }
+
+    .info_card h5{
+        font-size:16px;
+    }
+}

@@ -37,7 +37,7 @@ const locate = () => {
             <span>Select Location on Map</span>{" "}
           </h4>{" "}
         </div>
-        <div className="col-xxl-10 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
+        <div className="col-xxl-8 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
           <h4 className={styles.locate_suggestions}>Recently Searched Locations</h4>
           <h4 className={styles.locate_head}>
             {" "}
