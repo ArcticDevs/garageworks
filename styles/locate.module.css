@@ -1,0 +1,64 @@
+.locate_current {
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  border:1px solid #dad6d6;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.locate_current span {
+  margin-left: 30px;
+}
+
+.locate_current svg{
+    width: 20px;
+    color: limegreen;
+}
+
+.locate_head {
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  margin:15px 0;
+  padding: 15px;
+}
+
+.locate_head span {
+  margin-left: 30px;
+  cursor: pointer;
+
+}
+
+.locate_head svg{
+    width: 20px;
+    transform: scale(2.5);
+    color:grey;
+}
+    
+.locate_suggestions{
+    font-size: 20px;
+    color:rgb(106, 105, 105);
+    background:#eae7e7;
+    padding:10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    white-space:nowrap;
+}
+
+@media(max-width:430px){
+    .locate_current,
+    .locate_head {
+        font-size: 16px;
+    }
+
+    .locate_suggestions{
+        font-size: 16px;
+    }
+
+    .locate_head svg{
+        transform: scale(2);
+    }
+}
