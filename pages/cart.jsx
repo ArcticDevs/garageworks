@@ -183,7 +183,7 @@ const Cart = () => {
 
   return (
     <div className="row d-flex flex-column">
-      <div className="d-flex align-items-center mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
+      <div className="d-flex align-items-center mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 border p-3 rounded">
         <div
           className=""
           style={{
@@ -206,7 +206,7 @@ const Cart = () => {
           <span className="text-secondary">Petrol</span>{" "}
         </div>
       </div>
-      <div className="mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mt-5">
+      <div className="mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mt-3 border p-3 rounded">
         <div className="d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center flex-column flex-xxl-row flex-xl-row flex-lg-row flex-md-row">
             <span className="fw-bold">1 Service Added</span>
@@ -291,89 +291,91 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <div className="mt-5 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
-        <Accordion>
-          <Card style={{ border: "none" }}>
-            <Card.Header style={{ backgroundColor: "#fff", border: "none" }}>
-              <CustomToggle eventKey="0">Customer Details </CustomToggle>
-            </Card.Header>
-            <Accordion.Collapse eventKey="0">
-              <Card.Body
-                style={{
-                  color: "#5f727f",
-                  fontSize: "18px",
-                  fontWeight: "400",
-                  letterSpacing: "0.2px",
-                }}
-                className="d-flex flex-column"
-              >
-                <div className={`${styles.accordion_body_contact} mb-3`}>
-                  <div>
-                    {" "}
-                    <span className="fw-bold">Name :</span> John Smith
-                  </div>
-                  <div>
-                    <span className="fw-bold">Email :</span> john@gmail.com
-                  </div>
-                </div>
-                <div className={`${styles.accordion_body_contact} mb-3`}>
-                  <div>
-                    {" "}
-                    <span className="fw-bold">Phone :</span> 1234567899
-                  </div>
-                  <div>
-                    <span className="fw-bold">Alternate Phone :</span>{" "}
-                    1234567889
-                  </div>
-                </div>
-                <div>
-                  <span className="fw-bold">Address :</span> Parking lot no.2,
-                  Pune Airport
-                </div>
-              </Card.Body>
-            </Accordion.Collapse>
-          </Card>
-        </Accordion>
-        <hr />
-      </div>
-      <div className="mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
-        <Accordion>
-          <Card style={{ border: "none" }}>
-            <Card.Header style={{ backgroundColor: "#fff", border: "none" }}>
-              <CustomToggle eventKey="0">Service Details </CustomToggle>
-            </Card.Header>
-            <Accordion.Collapse eventKey="0">
-              <Card.Body
-                style={{
-                  fontSize: "16px",
-                  fontWeight: "400",
-                }}
-                className="d-flex flex-column align-items-center"
-              >
-                <div className={`d-flex flex-wrap ${styles1.commonSpares}`}>
-                  {spares.map(
-                    (curr, index) =>
-                      curr && (
-                        <div key={index} className={`${styles1.searchBlob}`}>
-                          {curr}
-                        </div>
-                      )
-                  )}
-                </div>
-                <button
-                  className="btn btn-warning fw-bold mt-3"
-                  onClick={() => router.push("/search")}
+      <div className="col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto mt-3 border p-3 rounded">
+        <div className="mt-3 mx-auto col-12">
+          <Accordion>
+            <Card style={{ border: "none" }}>
+              <Card.Header style={{ backgroundColor: "#fff", border: "none" }}>
+                <CustomToggle eventKey="0">Customer Details </CustomToggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body
+                  style={{
+                    color: "#5f727f",
+                    fontSize: "18px",
+                    fontWeight: "400",
+                    letterSpacing: "0.2px",
+                  }}
+                  className="d-flex flex-column"
                 >
-                  Edit
-                </button>
-              </Card.Body>
-            </Accordion.Collapse>
-          </Card>
-        </Accordion>
+                  <div className={`${styles.accordion_body_contact} mb-3`}>
+                    <div>
+                      {" "}
+                      <span className="fw-bold">Name :</span> John Smith
+                    </div>
+                    <div>
+                      <span className="fw-bold">Email :</span> john@gmail.com
+                    </div>
+                  </div>
+                  <div className={`${styles.accordion_body_contact} mb-3`}>
+                    <div>
+                      {" "}
+                      <span className="fw-bold">Phone :</span> 1234567899
+                    </div>
+                    <div>
+                      <span className="fw-bold">Alternate Phone :</span>{" "}
+                      1234567889
+                    </div>
+                  </div>
+                  <div>
+                    <span className="fw-bold">Address :</span> Parking lot no.2,
+                    Pune Airport
+                  </div>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
+          <hr />
+        </div>
+        <div className="mx-auto col-12 ">
+          <Accordion>
+            <Card style={{ border: "none" }}>
+              <Card.Header style={{ backgroundColor: "#fff", border: "none" }}>
+                <CustomToggle eventKey="0">Service Details </CustomToggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "400",
+                  }}
+                  className="d-flex flex-column align-items-center"
+                >
+                  <div className={`d-flex flex-wrap ${styles1.commonSpares}`}>
+                    {spares.map(
+                      (curr, index) =>
+                        curr && (
+                          <div key={index} className={`${styles1.searchBlob}`}>
+                            {curr}
+                          </div>
+                        )
+                    )}
+                  </div>
+                  <button
+                    className="btn btn-warning fw-bold mt-3"
+                    onClick={() => router.push("/search")}
+                  >
+                    Edit
+                  </button>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
 
-        <hr />
+          <hr />
+        </div>
       </div>
-      <div className="mt-4 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
+      <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 border p-3 rounded">
         <div className="d-flex justify-content-between align-items-center">
           <span className="fw-bold">Issues</span>
           <span
@@ -417,9 +419,8 @@ const Cart = () => {
             <h5 className="text-center mx-auto">No Issues Added</h5>
           )}
         </div>
-        <hr className='mt-4'/>
       </div>
-      <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
+      <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 border p-3 rounded">
         <h5>COUPONS</h5>
         <div className="d-flex justify-content-between align-items-center">
           <div
@@ -429,7 +430,7 @@ const Cart = () => {
           >
             <span className="fw-bold">
               <svg
-                style={{ width: "25px",height:'25px', color: "limegreen" }}
+                style={{ width: "25px", height: "25px", color: "limegreen" }}
                 viewBox="0 0 24 24"
               >
                 <path
@@ -438,9 +439,7 @@ const Cart = () => {
                 />
               </svg>
             </span>
-            <span className="ms-3 fw-bold">
-              Apply Coupon
-            </span>
+            <span className="ms-3 fw-bold">Apply Coupon</span>
           </div>
           <div
             className="fw-bold"
@@ -473,9 +472,8 @@ const Cart = () => {
             setCouponCode={setCouponCode}
           />
         </div>
-        <hr className='mt-4'/>
       </div>
-      <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
+      <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 border p-3 rounded">
         <h5>PRICE DETAILS (1 service)</h5>
         <div className="d-flex justify-content-between fw-bold mt-3">
           <span>Service Total</span>
@@ -510,8 +508,8 @@ const Cart = () => {
         </div>
       </div>
       <div className="my-4 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 d-flex justify-content-between">
-        <Button className='btn btn-warning'>Pay Later</Button>
-        <Button className='btn btn-success'>Pay Now</Button>
+        <Button className="btn btn-warning">Pay Later</Button>
+        <Button className="btn btn-success">Pay Now</Button>
       </div>
     </div>
   );

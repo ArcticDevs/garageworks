@@ -45,3 +45,9 @@ a {
 .container {
   overflow: auto;
 }
+
+@media(max-width:430px){
+  *{
+    font-size:14px !important;
+  }
+}
