@@ -48,6 +48,6 @@ a {
 
 @media(max-width:430px){
   *{
-    font-size:14px !important;
+    font-size:12px !important;
   }
 }

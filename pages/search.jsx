@@ -4,6 +4,7 @@ import styles1 from "../styles/account.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { Button } from "react-bootstrap";
+import { Link } from "@mui/material";
 
 const Search = () => {
   const spares = [
@@ -125,17 +126,9 @@ const Search = () => {
           )}
         </div>
       </div>
-      <div className="col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto mt-3">
-        <Button
-          onClick={() => {
-            saveSelected();
-            router.push("/cart");
-          }}
-          className="w-100 mx-auto"
-        >
-          Cart Page
-        </Button>
-      </div>
+      <button className={`${styles1.signup_btn} mt-4 w-50 mx-auto`} style={{backgroundColor:'#FFC107'}}>
+            <Link href="/cart">Cart Page</Link>
+        </button>
     </div>
   );
 };

@@ -4,14 +4,17 @@ import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
-import styles from "../styles//date_and_additional_info.module.css";
-import Link from "next/link";
+import styles from "../styles/date_and_additional_info.module.css";
+import {useRouter} from "next/router";
+import { Link } from "@mui/material";
+import styles1 from '../styles/login.module.css'
 
 export default function StaticDatePickerDemo() {
   const [value, setValue] = useState(dayjs(new Date()));
   const [timeSlot, setTimeSlot] = useState(0);
+
+  const router = useRouter()
 
   const timeSlots = [
     "11:00",
@@ -41,7 +44,7 @@ export default function StaticDatePickerDemo() {
           />
         </LocalizationProvider>
       </div>
-      <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto my-1">
+      <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto my-1 ">
         <h3 className={`${styles.date_head}`}>slots available </h3>
         <div className="mx-auto d-flex flex-wrap">
           {timeSlots.map((curr, index) => (
@@ -58,37 +61,10 @@ export default function StaticDatePickerDemo() {
             </div>
           ))}
         </div>
-      </div>
-      <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto d-flex flex-column mt-3">
-        <h3 className='text-center mt-2 mb-3'>Additional Information</h3>
-        <Link href="/search">
-          <div className={styles.info_card}>
-            <h5>Do you have any complaints?</h5>
-            <span>
-              Click here if you have any complaints (Eg. Horn not working,
-              Acceleration hard)
-            </span>
-          </div>
-        </Link>
-        <Link href="/search">
-          <div className={styles.info_card}>
-            <h5>Do you have any additional spares requirement?</h5>
-            <span>
-              Click here if you have any additional spares part replacement (Eg.
-              Spark plug, Horn)
-            </span>
-          </div>
-        </Link>
-        <Link href="/search">
-          <div className={styles.info_card}>
-            <h5>Do you need any additional labour work done?</h5>
-            <span>
-              Click here if you have any additional labour work (Eg. Wheel
-              greasing, bike wash)
-            </span>
-          </div>
-        </Link>
-      </div>
+        <button className={`${styles1.signup_btn} mt-3 w-100`}>
+            <Link href="/additionalInfo">Next</Link>
+        </button>   
+      </div>   
     </div>
   );
 }

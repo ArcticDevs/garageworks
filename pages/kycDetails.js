@@ -57,9 +57,9 @@ const KycDetails = () => {
     number: "",
     name: "",
     email: "",
-    pincode: "",
-    house: "",
-    road: "",
+    pincode: "382007",
+    house: "Parking lot no.2",
+    road: "Pune Airport Road",
   });
 
   const { number, pincode, name, email, house, road } = formData;
@@ -202,49 +202,52 @@ const KycDetails = () => {
                 </span>
               </div>
             </div>
-            {!checkboxValue && (
-              <div>
-                <input
-                  type="text"
-                  className={`${styles.inputField} col-12 mx-auto mt-3 shadow-sm mb-2`}
-                  placeholder="Enter your Pincode"
-                  autoComplete="off"
-                  id="pincode"
-                  value={pincode}
-                  onChange={handleOnchange}
-                  required
-                />
-                <Link href="/locate">
-                  <span id="pincode" className={`${styles.dontKnowPin}`}>
-                    Dont know your pincode? Click here to find your area
-                  </span>
-                </Link>
-                {/* <span className={`${styles.mute}`}>Don't know your pincode? Click here to find your area</span> */}
-                <input
-                  type="text"
-                  className={`${styles.inputField} col-12 mx-auto mt-3 shadow-sm `}
-                  placeholder="House/ Flat/ Office No."
-                  autoComplete="off"
-                  id="house"
-                  value={house}
-                  onChange={handleOnchange}
-                  required
-                />
-                <textarea
-                  rows={1}
-                  type="text"
-                  className={`${styles.inputField} col-12 mx-auto mt-3 shadow-sm `}
-                  placeholder="Road Name/ Area/ Colony"
-                  autoComplete="off"
-                  id="road"
-                  value={road}
-                  onChange={handleOnchange}
-                  required
-                />
-              </div>
-            )}
+            <div>
+              <input
+                type="text"
+                className={`${styles.inputField} col-12 mx-auto mt-3 shadow-sm mb-2`}
+                placeholder="Enter your Pincode"
+                autoComplete="off"
+                id="pincode"
+                value={pincode}
+                onChange={handleOnchange}
+                required
+                disabled={checkboxValue}
+              />
+              <Link href="/locate">
+                <span id="pincode" className={`${styles.dontKnowPin}`}>
+                  Dont know your pincode? Click here to find your area
+                </span>
+              </Link>
+              {/* <span className={`${styles.mute}`}>Don't know your pincode? Click here to find your area</span> */}
+              <input
+                type="text"
+                className={`${styles.inputField} col-12 mx-auto mt-3 shadow-sm `}
+                placeholder="House/ Flat/ Office No."
+                autoComplete="off"
+                id="house"
+                value={house}
+                onChange={handleOnchange}
+                required
+                disabled={checkboxValue}
+              />
+              <textarea
+                rows={1}
+                type="text"
+                className={`${styles.inputField} col-12 mx-auto mt-3 shadow-sm `}
+                placeholder="Road Name/ Area/ Colony"
+                autoComplete="off"
+                id="road"
+                value={road}
+                onChange={handleOnchange}
+                required
+                disabled={checkboxValue}
+              />
+            </div>
           </div>
-          <button className={`${styles.signup_btn} mt-3`}><Link href="/bookingSchedule">Next</Link></button>
+          <button className={`${styles.signup_btn} mt-3`}>
+            <Link href="/bookingSchedule">Next</Link>
+          </button>
         </form>
       </div>
     </div>

@@ -3,7 +3,7 @@
     color:rgb(106, 105, 105);
     padding:10px;
     border-radius: 10px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     white-space:nowrap;
 }
 

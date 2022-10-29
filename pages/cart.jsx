@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import styles2 from "../styles/account.module.css";
+import styles3 from "../styles/login.module.css";
+import Link from "next/link";
 
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () => <></>);
@@ -36,18 +38,15 @@ function CustomToggle({ children, eventKey }) {
     >
       {children}
       {clicked ? (
-        <svg
-          style={{ width: "24px", height: "24px", marginRight: "5px" }}
-          viewBox="0 0 24 24"
-        >
-          <path fill="gray" d="M20 14H4V10H20" />
+        <svg style={{ width: "24px" }} viewBox="0 0 24 24">
+          <path fill="currentColor" d="M19,13H5V11H19V13Z" />
         </svg>
       ) : (
-        <svg
-          style={{ width: "24px", height: "24px", marginRight: "5px" }}
-          viewBox="0 0 24 24"
-        >
-          <path fill="gray" d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z" />
+        <svg style={{ width: "24px" }} viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+          />
         </svg>
       )}
     </div>
@@ -195,12 +194,12 @@ const Cart = () => {
           <Image
             src="/honda.png"
             alt="logo"
-            height="45px"
-            width="55px"
+            height="25px"
+            width="35px"
             style={{ layout: "fill" }}
           />
         </div>
-        <div className="d-flex flex-column ms-2">
+        <div className="d-flex flex-column ms-4">
           {" "}
           <span className="fw-bold">Honda Civic</span>{" "}
           <span className="text-secondary">Petrol</span>{" "}
@@ -208,10 +207,10 @@ const Cart = () => {
       </div>
       <div className="mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 mt-3 border p-3 rounded">
         <div className="d-flex justify-content-between align-items-center">
-          <div className="d-flex align-items-center flex-column flex-xxl-row flex-xl-row flex-lg-row flex-md-row">
+          <div className="d-flex align-items-center">
             <span className="fw-bold">1 Service Added</span>
             <span
-              className="ms-3 fw-bold text-danger rounded mt-3 mt-xxl-0 mt-xl-0 mt-lg-0 mt-md-0"
+              className="ms-3 fw-bold text-danger rounded "
               style={{ backgroundColor: "rgba(188,84,75,0.3)", padding: "7px" }}
             >
               Service at Garage
@@ -224,7 +223,7 @@ const Cart = () => {
             Add more
           </div>
         </div>
-        <div className="d-flex justify-content-between align-items-center mt-5">
+        <div className="d-flex justify-content-between align-items-center mt-4">
           <div className="d-flex align-items-center">
             <span>
               <Image
@@ -236,7 +235,7 @@ const Cart = () => {
               />
             </span>
             <div
-              className="ms-3 d-flex flex-column"
+              className="ms-5 d-flex flex-column"
               style={{ position: "relative" }}
             >
               <span className="fw-bold">Complete Car ...</span>
@@ -292,7 +291,7 @@ const Cart = () => {
         </div>
       </div>
       <div className="col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 mx-auto mt-3 border p-3 rounded">
-        <div className="mt-3 mx-auto col-12">
+        <div className="mx-auto col-12">
           <Accordion>
             <Card style={{ border: "none" }}>
               <Card.Header style={{ backgroundColor: "#fff", border: "none" }}>
@@ -337,7 +336,7 @@ const Cart = () => {
           </Accordion>
           <hr />
         </div>
-        <div className="mx-auto col-12 ">
+        <div className="mx-auto col-12">
           <Accordion>
             <Card style={{ border: "none" }}>
               <Card.Header style={{ backgroundColor: "#fff", border: "none" }}>
@@ -351,19 +350,29 @@ const Cart = () => {
                   }}
                   className="d-flex flex-column align-items-center"
                 >
-                  <div className={`d-flex flex-wrap ${styles1.commonSpares}`}>
-                    {spares.map(
-                      (curr, index) =>
-                        curr && (
-                          <div key={index} className={`${styles1.searchBlob}`}>
-                            {curr}
-                          </div>
-                        )
+                  <div className={`col-12 d-flex flex-wrap ${styles1.commonSpares}`}>
+                    {spares.length > 0 ? (
+                      spares.map(
+                        (curr, index) =>
+                          curr && (
+                            <div
+                              key={index}
+                              className={`${styles1.searchBlob}`}
+                            >
+                              {curr}
+                            </div>
+                          )
+                      )
+                    ) : (
+                      <h5 className="text-center mx-auto">
+                        No Spares Selected
+                      </h5>
                     )}
                   </div>
                   <button
-                    className="btn btn-warning fw-bold mt-3"
+                    className={`${styles3.signup_btn} mt-3 w-50`}
                     onClick={() => router.push("/search")}
+                    style={{ backgroundColor: "#FFC107" }}
                   >
                     Edit
                   </button>
@@ -507,9 +516,16 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <div className="my-4 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 d-flex justify-content-between">
-        <Button className="btn btn-warning">Pay Later</Button>
-        <Button className="btn btn-success">Pay Now</Button>
+      <div className="d-flex mx-auto col-12 mb-4">
+        <button className={`${styles3.signup_btn} mt-3 w-50`}>
+          <Link href="/search">Pay Later</Link>
+        </button>
+        <button
+          className={`${styles3.signup_btn} mt-3 w-50 ms-5`}
+          style={{ backgroundColor: "#198754" }}
+        >
+          <Link href="/cart">Pay Now</Link>
+        </button>
       </div>
     </div>
   );
