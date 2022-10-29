@@ -1,0 +1,17 @@
+.accordion_body_contact{
+    display:flex;
+    justify-content:space-between;
+}
+
+.issueText{
+    color:red;
+    background-color:rgba(194, 194, 103, 0.3) !important;
+    padding:10px;
+}
+
+@media(max-width:430px){
+    .accordion_body_contact{
+        display:flex;
+        flex-direction:column;        
+    }
+}

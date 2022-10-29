@@ -17,6 +17,18 @@
     margin:10px 15px;
 }
 
+.selectedBlob{
+    position: relative;
+}
+
+.removeCross{
+    width:15px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    color:rgb(234, 48, 48);
+}
+
 .commonSpares{
     background-color: #f3f3f3;
     padding:10px;
