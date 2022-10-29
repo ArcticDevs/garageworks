@@ -39,15 +39,9 @@ const AdditionalInfo = () => {
           </div>
         </Link>
         <div className="d-flex mx-auto col-12">
-          <button className={`${styles1.signup_btn} mt-3 w-50`}>
-            <Link href="/search">Next</Link>
-          </button>
-          <button
-            className={`${styles1.signup_btn} mt-3 w-50 ms-5`}
-            style={{ backgroundColor: "#FFC107" }}
-          >
-            <Link href="/cart">Cart Page</Link>
-          </button>
+          <Link href="/cart">
+            <button className={`${styles1.signup_btn} mt-3 w-100`}>Next</button>
+          </Link>
         </div>
       </div>
     </div>

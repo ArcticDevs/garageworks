@@ -241,7 +241,7 @@ const Cart = () => {
               <span className="fw-bold">Complete Car ...</span>
               <span className="my-2">(Fully Synthetic)</span>
               <h4 className="fw-bold text-danger">₹6,986</h4>
-              <div>
+              {/* <div>
                 <Dropdown>
                   <Dropdown.Toggle
                     variant="secondary"
@@ -268,7 +268,7 @@ const Cart = () => {
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-              </div>
+              </div> */}
             </div>
           </div>
 

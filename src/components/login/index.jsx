@@ -87,7 +87,12 @@ const Login = () => {
 
   return (
     <div className={`${styles.login} col-12 text-center d-flex flex-column`}>
-      <h4 className="fw-bold">Login / Sign-up to get up to ₹199 Off</h4>
+      {!showOtpField ? (
+        <h4 className="fw-bold">Login / Sign-up to get up to ₹199 Off</h4>
+      ) : (
+        <h4 className="fw-bold mt-3">Welcome John!</h4>
+      )}
+
       <form onSubmit={handleOnSubmit}>
         <input
           type="number"
@@ -103,7 +108,6 @@ const Login = () => {
         )}
         {showOtpField && (
           <div>
-            <h4 className="fw-bold mt-3">Welcome John!</h4>
             <div className={`${styles.register_options} mt-3`}>
               <OtpInput
                 value={otpValue}
@@ -116,7 +120,7 @@ const Login = () => {
           </div>
         )}
         {verifyNum && (
-          <div className='d-flex align-items-center justify-content-center mt-3'>
+          <div className="d-flex align-items-center justify-content-center mt-3">
             Verifying number &nbsp;
             <div class="spinner-border" role="status">
               <span class="visually-hidden"> Loading...</span>
