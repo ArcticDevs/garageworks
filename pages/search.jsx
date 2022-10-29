@@ -24,7 +24,7 @@ const Search = () => {
 
   const handleSelectingSpares = (selected) => {
     const tempArr1 = commonSpares;
-    tempArr1 = tempArr1.filter((curr) => curr !== selected)
+    tempArr1 = tempArr1.filter((curr) => curr !== selected);
 
     const tempArr2 = selectedSpares;
     tempArr2.push(selected);
@@ -38,7 +38,7 @@ const Search = () => {
 
   const handleRemovingSpares = (selected) => {
     const tempArr1 = selectedSpares;
-    tempArr1 = tempArr1.filter((curr) => curr !== selected)
+    tempArr1 = tempArr1.filter((curr) => curr !== selected);
 
     const tempArr2 = commonSpares;
     tempArr2.push(selected);
@@ -126,9 +126,14 @@ const Search = () => {
           )}
         </div>
       </div>
-      <button className={`${styles1.signup_btn} mt-4 w-50 mx-auto`} style={{backgroundColor:'#FFC107'}}>
-            <Link href="/cart">Cart Page</Link>
+      <Link href="/cart">
+        <button
+          className={`${styles1.signup_btn} mt-4 w-50 mx-auto`}
+          style={{ backgroundColor: "#FFC107" }}
+        >
+          Cart Page
         </button>
+      </Link>
     </div>
   );
 };
