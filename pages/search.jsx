@@ -126,9 +126,9 @@ const Search = () => {
           )}
         </div>
       </div>
-      <Link href="/cart">
+      <Link href="/cart" className="w-100">
         <button
-          className={`${styles1.signup_btn} mt-4 w-50 mx-auto`}
+          className={`${styles1.signup_btn} mt-4 w-100 mx-auto`}
           style={{ backgroundColor: "#FFC107" }}
         >
           Cart Page
