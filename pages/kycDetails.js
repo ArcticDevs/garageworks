@@ -245,9 +245,9 @@ const KycDetails = () => {
               />
             </div>
           </div>
-          <button className={`${styles.signup_btn} mt-3`}>
-            <Link href="/bookingSchedule">Next</Link>
-          </button>
+          <Link href="/bookingSchedule">
+            <button className={`${styles.signup_btn} mt-3`}>Next</button>
+          </Link>
         </form>
       </div>
     </div>

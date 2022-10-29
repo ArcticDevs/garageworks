@@ -516,7 +516,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <div className="d-flex mx-auto col-12 mb-4">
+      <div className="d-flex mx-auto mb-4 col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
         <button className={`${styles3.signup_btn} mt-3 w-50`}>
           <Link href="/search">Pay Later</Link>
         </button>

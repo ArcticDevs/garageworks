@@ -103,7 +103,7 @@ const Login = () => {
         )}
         {showOtpField && (
           <div>
-            <h4 className="fw-bold mt-1">Welcome John!</h4>
+            <h4 className="fw-bold mt-3">Welcome John!</h4>
             <div className={`${styles.register_options} mt-3`}>
               <OtpInput
                 value={otpValue}
