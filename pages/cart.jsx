@@ -183,7 +183,7 @@ const Cart = () => {
 
   return (
     <div className="row d-flex flex-column">
-      <div className="d-flex align-items-center mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 border p-3 rounded">
+      <div className="d-flex align-items-center mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 border p-3 rounded">
         <div
           className=""
           style={{
@@ -206,7 +206,7 @@ const Cart = () => {
           <span className="text-secondary">Petrol</span>{" "}
         </div>
       </div>
-      <div className="mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mt-3 border p-3 rounded">
+      <div className="mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 mt-3 border p-3 rounded">
         <div className="d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center flex-column flex-xxl-row flex-xl-row flex-lg-row flex-md-row">
             <span className="fw-bold">1 Service Added</span>
@@ -291,7 +291,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <div className="col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto mt-3 border p-3 rounded">
+      <div className="col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 mx-auto mt-3 border p-3 rounded">
         <div className="mt-3 mx-auto col-12">
           <Accordion>
             <Card style={{ border: "none" }}>
@@ -375,7 +375,7 @@ const Cart = () => {
           <hr />
         </div>
       </div>
-      <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 border p-3 rounded">
+      <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 border p-3 rounded">
         <div className="d-flex justify-content-between align-items-center">
           <span className="fw-bold">Issues</span>
           <span
@@ -420,7 +420,7 @@ const Cart = () => {
           )}
         </div>
       </div>
-      <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 border p-3 rounded">
+      <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 border p-3 rounded">
         <h5>COUPONS</h5>
         <div className="d-flex justify-content-between align-items-center">
           <div
@@ -473,7 +473,7 @@ const Cart = () => {
           />
         </div>
       </div>
-      <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 border p-3 rounded">
+      <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 border p-3 rounded">
         <h5>PRICE DETAILS (1 service)</h5>
         <div className="d-flex justify-content-between fw-bold mt-3">
           <span>Service Total</span>
@@ -507,7 +507,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <div className="my-4 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 d-flex justify-content-between">
+      <div className="my-4 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 d-flex justify-content-between">
         <Button className="btn btn-warning">Pay Later</Button>
         <Button className="btn btn-success">Pay Now</Button>
       </div>
