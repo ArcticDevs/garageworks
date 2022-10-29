@@ -39,7 +39,7 @@ const AdditionalInfo = () => {
           </div>
         </Link>
         <div className="d-flex mx-auto col-12">
-          <Link href="/cart">
+          <Link href="/cart" className="w-100">
             <button className={`${styles1.signup_btn} mt-3 w-100`}>Next</button>
           </Link>
         </div>

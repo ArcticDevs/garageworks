@@ -176,7 +176,7 @@ const Cart = () => {
 
     temp = temp.filter((curr) => curr !== selected);
 
-    setIssueArr(temp.length === 0 ? [] : temp);
+    setIssueArr(temp?.length === 0 ? [] : temp);
     localStorage.setItem("issueArr", JSON.stringify(temp));
   };
 
@@ -351,7 +351,7 @@ const Cart = () => {
                   className="d-flex flex-column align-items-center"
                 >
                   <div className={`col-12 d-flex flex-wrap ${styles1.commonSpares}`}>
-                    {spares.length > 0 ? (
+                    {spares?.length > 0 ? (
                       spares.map(
                         (curr, index) =>
                           curr && (
@@ -402,7 +402,7 @@ const Cart = () => {
           setIssueArr={setIssueArr}
         />
         <div className={`${styles1.commonSpares} d-flex flex-wrap mt-4`}>
-          {issueArr.length > 0 ? (
+          {issueArr?.length > 0 ? (
             issueArr.map(
               (curr, index) =>
                 curr && (
@@ -414,7 +414,7 @@ const Cart = () => {
                     data-bs-placement="bottom"
                     title={curr}
                   >
-                    {curr.length > 15 ? curr.substring(0, 15) + "..." : curr}
+                    {curr?.length > 15 ? curr.substring(0, 15) + "..." : curr}
                     <svg className={styles1.removeCross} viewBox="0 0 24 24">
                       <path
                         fill="currentColor"
