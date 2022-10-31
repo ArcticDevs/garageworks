@@ -38,7 +38,7 @@ const locate = () => {
           </h4>{" "}
         </div>
         <div className="col-xxl-8 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
-          <h4 className={styles.locate_suggestions}>Recently Searched Locations</h4>
+          <h2 className={styles.locate_suggestions}>Recently Searched Locations</h2>
           <h4 className={styles.locate_head}>
             {" "}
             <svg viewBox="0 0 24 24">
@@ -62,7 +62,7 @@ const locate = () => {
           </h4>
         </div>
         <div className="col-xxl-10 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
-          <h4 className={styles.locate_suggestions}>Suggested Pickup Locations</h4>
+          <h2 className={styles.locate_suggestions}>Suggested Pickup Locations</h2>
           <h4 className={styles.locate_head}>
             {" "}
             <svg viewBox="0 0 24 24">
