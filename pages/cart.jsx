@@ -11,6 +11,7 @@ import Button from "react-bootstrap/Button";
 import styles2 from "../styles/account.module.css";
 import styles3 from "../styles/login.module.css";
 import Link from "next/link";
+import NavigationButton from "../src/components/NavigationButton";
 
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () => <></>);
@@ -208,8 +209,8 @@ const Cart = () => {
       <div className="mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 mt-3 border p-3 rounded">
         <div className="d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center">
-            <h3 className="fw-bold">1 Service Added</h3>
-              {/* <h3
+            <h2 className="fw-bold">1 Service Added</h2>
+            {/* <h3
                 className="ms-3 fw-bold text-danger rounded "
                 style={{ backgroundColor: "rgba(188,84,75,0.3)", padding: "7px" }}
               >
@@ -336,11 +337,12 @@ const Cart = () => {
           </Accordion>
           <hr />
         </div>
+
         <div className="mx-auto col-12">
           <Accordion>
             <Card style={{ border: "none" }}>
               <Card.Header style={{ backgroundColor: "#fff", border: "none" }}>
-                <CustomToggle eventKey="0">Service Details </CustomToggle>
+                <CustomToggle eventKey="0">Additional Repairs </CustomToggle>
               </Card.Header>
               <Accordion.Collapse eventKey="0">
                 <Card.Body
@@ -350,7 +352,9 @@ const Cart = () => {
                   }}
                   className="d-flex flex-column align-items-center"
                 >
-                  <div className={`col-12 d-flex flex-wrap ${styles1.commonSpares}`}>
+                  <div
+                    className={`col-12 d-flex flex-wrap ${styles1.commonSpares}`}
+                  >
                     {spares?.length > 0 ? (
                       spares.map(
                         (curr, index) =>
@@ -383,25 +387,122 @@ const Cart = () => {
 
           <hr />
         </div>
+        <div className="mx-auto col-12">
+          <Accordion>
+            <Card style={{ border: "none" }}>
+              <Card.Header style={{ backgroundColor: "#fff", border: "none" }}>
+                <CustomToggle eventKey="0">Additional Spares </CustomToggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "400",
+                  }}
+                  className="d-flex flex-column align-items-center"
+                >
+                  <div
+                    className={`col-12 d-flex flex-wrap ${styles1.commonSpares}`}
+                  >
+                    {spares?.length > 0 ? (
+                      spares.map(
+                        (curr, index) =>
+                          curr && (
+                            <div
+                              key={index}
+                              className={`${styles1.searchBlob}`}
+                            >
+                              {curr}
+                            </div>
+                          )
+                      )
+                    ) : (
+                      <h5 className="text-center mx-auto">
+                        No Spares Selected
+                      </h5>
+                    )}
+                  </div>
+                  <button
+                    className={`${styles3.signup_btn} mt-3 w-50`}
+                    onClick={() => router.push("/search")}
+                    style={{ backgroundColor: "#FFC107" }}
+                  >
+                    Edit
+                  </button>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
+
+          <hr />
+        </div>
+        <div className="mx-auto col-12">
+          <Accordion>
+            <Card style={{ border: "none" }}>
+              <Card.Header style={{ backgroundColor: "#fff", border: "none" }}>
+                <CustomToggle eventKey="0">Common Complaints </CustomToggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "400",
+                  }}
+                  className="d-flex flex-column align-items-center"
+                >
+                  <div
+                    className={`col-12 d-flex flex-wrap ${styles1.commonSpares}`}
+                  >
+                    {spares?.length > 0 ? (
+                      spares.map(
+                        (curr, index) =>
+                          curr && (
+                            <div
+                              key={index}
+                              className={`${styles1.searchBlob}`}
+                            >
+                              {curr}
+                            </div>
+                          )
+                      )
+                    ) : (
+                      <h5 className="text-center mx-auto">
+                        No Spares Selected
+                      </h5>
+                    )}
+                  </div>
+                  <button
+                    className={`${styles3.signup_btn} mt-3 w-50`}
+                    onClick={() => router.push("/search")}
+                    style={{ backgroundColor: "#FFC107" }}
+                  >
+                    Edit
+                  </button>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
+        </div>
       </div>
       <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 border p-3 rounded">
-        <div className="d-flex justify-content-between align-items-center">
-          <span className="fw-bold">Issues</span>
-          <span
+        
+          <h2 className="fw-bold">Issues</h2>
+          {/* <span
             className="fw-bold text-danger"
             style={{ cursor: "pointer" }}
             onClick={() => setIssueModalShow(true)}
           >
             + Add Issues
-          </span>
-        </div>
-        <IssueModal
+          </span> */}
+          <textarea className="border rounded w-100 p-2 mt-2" rows="5" placeholder="Enter Your Issue Here ..."></textarea>
+        
+        {/* <IssueModal
           show={issueModalShow}
           onHide={() => setIssueModalShow(false)}
           issueArr={issueArr}
           setIssueArr={setIssueArr}
-        />
-        <div className={`${styles1.commonSpares} d-flex flex-wrap mt-4`}>
+        /> */}
+        {/* <div className={`${styles1.commonSpares} d-flex flex-wrap mt-4`}>
           {issueArr?.length > 0 ? (
             issueArr.map(
               (curr, index) =>
@@ -427,10 +528,10 @@ const Cart = () => {
           ) : (
             <h5 className="text-center mx-auto">No Issues Added</h5>
           )}
-        </div>
+        </div> */}
       </div>
       <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 border p-3 rounded">
-        <h5>COUPONS</h5>
+        <h2>Coupons</h2>
         <div className="d-flex justify-content-between align-items-center">
           <div
             className="mt-3 d-flex align-items-center"
@@ -483,7 +584,7 @@ const Cart = () => {
         </div>
       </div>
       <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 border p-3 rounded">
-        <h5>PRICE DETAILS (1 service)</h5>
+        <h2>PRICE DETAILS (1 service)</h2>
         <div className="d-flex justify-content-between fw-bold mt-3">
           <span>Service Total</span>
           <span>₹6,986</span>
@@ -517,11 +618,16 @@ const Cart = () => {
         </div>
       </div>
       <div className="d-flex mx-auto mb-4 col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
-        <button className={`${styles3.signup_btn} mt-3 w-50`}>
-          <Link href="/search">Pay Later</Link>
-        </button>
+        {couponCode === "" && (
+          <button className={`${styles3.signup_btn} mt-3 w-50`}>
+            <Link href="/search">Pay Later</Link>
+          </button>
+        )}
+
         <button
-          className={`${styles3.signup_btn} mt-3 w-50 ms-5`}
+          className={`${styles3.signup_btn} mt-3 ${
+            couponCode === "" ? "w-50 ms-5" : "w-100"
+          }`}
           style={{ backgroundColor: "#198754" }}
         >
           <Link href="/cart">Pay Now</Link>

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { Button } from "react-bootstrap";
 import { Link } from "@mui/material";
+import NavigationButton from "../src/components/NavigationButton";
 
 const Search = () => {
   const spares = [
@@ -125,15 +126,12 @@ const Search = () => {
             <h5 className="text-center mx-auto">No Spares Selected</h5>
           )}
         </div>
+        <NavigationButton
+          label="Cart Page"
+          bgcolor="#FFC107"
+          navigateTo="/cart"
+        />
       </div>
-      <Link href="/cart" className="w-100">
-        <button
-          className={`${styles1.signup_btn} mt-4 w-100 mx-auto`}
-          style={{ backgroundColor: "#FFC107" }}
-        >
-          Cart Page
-        </button>
-      </Link>
     </div>
   );
 };

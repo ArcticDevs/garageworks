@@ -4,6 +4,7 @@ import styles from "../styles/account.module.css";
 import { RiEditFill } from "react-icons/ri";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import NavigationButton from "../src/components/NavigationButton";
 
 const KycDetails = () => {
   const { state, changeFunc } = useContext(Context);
@@ -245,9 +246,7 @@ const KycDetails = () => {
               />
             </div>
           </div>
-          <Link href="/bookingSchedule">
-            <button className={`${styles.signup_btn} mt-3`}>Next</button>
-          </Link>
+          <NavigationButton label='Next' bgcolor='#1032b5' navigateTo='/bookingSchedule'/>
         </form>
       </div>
     </div>

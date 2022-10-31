@@ -9,6 +9,7 @@ import styles from "../styles/date_and_additional_info.module.css";
 import { useRouter } from "next/router";
 import { Link } from "@mui/material";
 import styles1 from "../styles/login.module.css";
+import NavigationButton from "../src/components/NavigationButton";
 
 export default function StaticDatePickerDemo() {
   const [value, setValue] = useState(dayjs(new Date()));
@@ -64,9 +65,7 @@ export default function StaticDatePickerDemo() {
             </div>
           ))}
         </div>
-        <Link href="/additionalInfo">
-          <button className={`${styles1.signup_btn} mt-3 w-100 `}>Next</button>
-        </Link>
+        <NavigationButton label='Next' bgcolor='#1032b5' navigateTo='/additionalInfo'/>
       </div>
     </div>
   );
