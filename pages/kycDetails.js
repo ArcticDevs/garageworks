@@ -116,7 +116,7 @@ const KycDetails = () => {
             id="num"
             disabled
           />
-          <button onClick={handleReverseBack} className="col-2">
+          <button onClick={handleReverseBack} className="mx-auto">
             <RiEditFill />
           </button>
         </div>
