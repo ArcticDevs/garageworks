@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import { Context } from "../../context";
 import styles from "../../../styles/login.module.css";
 import OtpInput from "react-otp-input";
@@ -85,6 +85,13 @@ const Login = () => {
     }
   };
 
+  const [timer, setTimer] = useState(36);    
+  const timeOutCallback = useCallback(() => setTimer(currTimer => currTimer - 1), []);
+  
+  useEffect(() => {
+    timer > 0 && setTimeout(timeOutCallback, 1000);
+  }, [timer, timeOutCallback]);
+
   return (
     <div className={`${styles.login} col-12 text-center d-flex flex-column`}>
       {!showOtpField ? (
@@ -118,6 +125,8 @@ const Login = () => {
                 className="mr-3"
               />
             </div>
+            <br />
+            {timer > 0 ?<h6>Resend OTP in 00:{timer < 10 && '0'}{timer}</h6> :<h6 className='text-primary' style={{cursor: "pointer"}} onClick={() => setTimer(30)}>Resend again? </h6>}
           </div>
         )}
         {verifyNum && (
