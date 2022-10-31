@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   display: flex;
+  align-items: center;
   /* gap: 10px; */
   /* justify-content: center; */
 }
@@ -11,16 +12,9 @@
   font-weight: bold;
 }
 
-.account_head button {
-  display: block;
-  position: relative;
-  border: none;
-  padding: 0;
-  text-align: right;
-  /* padding-left: 10px; */
-  background-color: transparent;
-  color: #000;
-  font-size: 30px;
+.account_head .editIcon{ 
+  font-size:30px;
+  margin-top: 25px; 
 }
 
 .address_head {
@@ -48,7 +42,7 @@
 
 .inputField {
   background-repeat: no-repeat;
-  background-size: 20px;
+  background-size: 15px;
   background-position: 15px 50%;
   text-indent: 40px;
   border: none;
@@ -81,7 +75,7 @@
 
 .email {
   background-image: url("../src/assets/email.png");
-  background-size: 30px;
+  background-size: 20px;
   background-position: 10px 50%;
 }
 

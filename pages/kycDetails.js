@@ -116,9 +116,7 @@ const KycDetails = () => {
             id="num"
             disabled
           />
-          <button onClick={handleReverseBack} className="mx-auto">
-            <RiEditFill />
-          </button>
+            <RiEditFill onClick={handleReverseBack} className={`${styles.editIcon} mx-auto`}/>
         </div>
         <form onSubmit={handleOnSubmit}>
           <input
