@@ -60,6 +60,7 @@ const Login = () => {
     if (continueNum === 0 && !showErrorNum) {
       setContinueNum(1);
       setOTP("")
+      setTimer(15)
     } else if (continueNum === 1 && !showErrorNum && !showErrorOtp) {
       setContinueNum(0);
       changeFunc.modalShow(false);
@@ -68,7 +69,7 @@ const Login = () => {
   };
 
   //timer functionality
-  const [timer, setTimer] = useState(21);
+  const [timer, setTimer] = useState(0);
   const timeOutCallback = useCallback(
     () => setTimer((currTimer) => currTimer - 1),
     []
