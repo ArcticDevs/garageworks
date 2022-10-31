@@ -486,7 +486,7 @@ const Cart = () => {
       </div>
       <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 border p-3 rounded">
         
-          <h2 className="fw-bold">Issues</h2>
+          <h2 className="fw-bold">Additional infomation</h2>
           {/* <span
             className="fw-bold text-danger"
             style={{ cursor: "pointer" }}
