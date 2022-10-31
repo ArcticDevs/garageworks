@@ -80,8 +80,8 @@ const Search = () => {
           ))}
         </datalist>
       </div>
-      <div className="col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto mt-3">
-        <h5 className={styles.common_text}>Most Common spares in Pulsar 180</h5>
+      <div className="col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto my-3">
+        <h3 className={styles.common_text}>Most Common spares in Pulsar 180</h3>
         <div className={`d-flex flex-wrap mt-3 ${styles.commonSpares}`}>
           {commonSpares.map(
             (curr, index) =>
@@ -97,10 +97,10 @@ const Search = () => {
           )}
         </div>
       </div>
-      <div className="col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto mt-3">
-        <h5 className={styles.common_text}>
+      <div className="col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto my-3">
+        <h3 className={`${styles.common_text}`}>
           You have selected following spares :
-        </h5>
+        </h3>
         <div className={`d-flex flex-wrap mt-3 ${styles.commonSpares}`}>
           {selectedSpares.length > 0 ? (
             selectedSpares.map(

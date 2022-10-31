@@ -37,7 +37,7 @@ const Modal = ({ show, onClose }) => {
             <div className={`${isMd ? styles.modal_position_mob : styles.modal_position_desk} ${hasTransitionedIn && show ? styles.modal_show : styles.modal_hide}`} onClick={e => e.stopPropagation()}>
                 <div className={styles.modal}>
                     <div className={styles.modal_content}>
-                        <button className={styles.modal_close_btn} onClick={handleModalClose}>X</button>
+                        <button className={styles.modal_close_btn} onClick={handleModalClose}></button>
                         <Login />
                     </div>
                 </div>

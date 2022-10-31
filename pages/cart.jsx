@@ -201,20 +201,20 @@ const Cart = () => {
         </div>
         <div className="d-flex flex-column ms-4">
           {" "}
-          <span className="fw-bold">Honda Civic</span>{" "}
-          <span className="text-secondary">Petrol</span>{" "}
+          <h3 className="fw-bold">Honda Civic</h3>{" "}
+          <h3 className="text-secondary">Petrol</h3>{" "}
         </div>
       </div>
       <div className="mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 mt-3 border p-3 rounded">
         <div className="d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center">
-            <span className="fw-bold">1 Service Added</span>
-            <span
-              className="ms-3 fw-bold text-danger rounded "
-              style={{ backgroundColor: "rgba(188,84,75,0.3)", padding: "7px" }}
-            >
-              Service at Garage
-            </span>
+            <h3 className="fw-bold">1 Service Added</h3>
+              {/* <h3
+                className="ms-3 fw-bold text-danger rounded "
+                style={{ backgroundColor: "rgba(188,84,75,0.3)", padding: "7px" }}
+              >
+                Service at Garage
+              </h3> */}
           </div>
           <div
             className="fw-bold"
@@ -225,7 +225,7 @@ const Cart = () => {
         </div>
         <div className="d-flex justify-content-between align-items-center mt-4">
           <div className="d-flex align-items-center">
-            <span>
+            <h3>
               <Image
                 src="/car.png"
                 alt="car"
@@ -233,13 +233,13 @@ const Cart = () => {
                 width="55px"
                 style={{ layout: "fill" }}
               />
-            </span>
+            </h3>
             <div
               className="ms-5 d-flex flex-column"
               style={{ position: "relative" }}
             >
-              <span className="fw-bold">Complete Car ...</span>
-              <span className="my-2">(Fully Synthetic)</span>
+              <h3 className="fw-bold">Complete Car ...</h3>
+              <h3 className="my-2">(Fully Synthetic)</h3>
               <h4 className="fw-bold text-danger">₹6,986</h4>
               {/* <div>
                 <Dropdown>

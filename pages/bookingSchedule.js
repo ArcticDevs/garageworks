@@ -33,7 +33,7 @@ export default function StaticDatePickerDemo() {
       style={{ maxWidth: "100%", overflow: "hidden", marginLeft: "-2px" }}
     >
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
-        <h3 className="text-center mb-2">Select Preferred Date and Time</h3>
+        <h4 className="text-center my-4">Select Preferred Date and Time</h4>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <StaticDatePicker
             displayStaticWrapperAs="desktop"
@@ -65,7 +65,7 @@ export default function StaticDatePickerDemo() {
           ))}
         </div>
         <Link href="/additionalInfo">
-          <button className={`${styles1.signup_btn} mt-3 w-100`}>Next</button>
+          <button className={`${styles1.signup_btn} mt-3 w-100 `}>Next</button>
         </Link>
       </div>
     </div>

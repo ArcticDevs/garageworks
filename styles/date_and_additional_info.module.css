@@ -1,5 +1,6 @@
 .date_head{
     font-size: 16px;
+    font-weight: bold;
     color:rgb(106, 105, 105);
     padding:10px;
     border-radius: 10px;
@@ -65,16 +66,16 @@
 @media(max-width:430px){
 
     .timeSlot{
-        padding:5px;
-        margin:2px 5px;
+        padding:10px;
+        margin:5px 5px;
     }
 
     .info_card{
         margin-bottom: 15px;
-        padding:10px;
+        padding:20px;
     }
 
     .info_card h5{
-        font-size:16px;
+        font-size:14px;
     }
 }

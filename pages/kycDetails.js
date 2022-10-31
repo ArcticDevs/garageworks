@@ -93,10 +93,10 @@ const KycDetails = () => {
   return (
     <div className="row">
       <div className="pb-5 mx-auto col-xxl-6 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
-        <h4 className={`${styles.account_head} mt-4`}>
+        <h4 className={`${styles.account_head} fw-bold mt-4`}>
           Please share your contact details
         </h4>
-        <div className={styles.address_head}>
+        <div className={`${styles.address_head} mb-4`}>
           <h3>Contact</h3>
         </div>
         <span className={`${styles.mute}`}>
@@ -174,7 +174,7 @@ const KycDetails = () => {
           )}
 
           <div className={styles.address_form}>
-            <div className={styles.address_head}>
+            <div className={`${styles.address_head} mb-4`}>
               <h3>Address</h3>
               <Link href="/locate">
                 <button type="button" onClick={handleLocation}>
@@ -185,10 +185,10 @@ const KycDetails = () => {
             {allowLocation && (
               <h3 className={styles.invalid}>Please allow Location Access</h3>
             )}
-            <div className="my-4">
+            <div>
               {/* <Map userAddress={userLocation} /> */}
             </div>
-            <div className="d-flex align-items-center justify-content-between my-3">
+            <div className="d-flex align-items-center justify-content-between ">
               <div>
                 <input
                   type="checkbox"
@@ -214,7 +214,7 @@ const KycDetails = () => {
                 required
                 disabled={checkboxValue}
               />
-              <Link href="/locate">
+              <Link href="/locate"  >
                 <span id="pincode" className={`${styles.dontKnowPin}`}>
                   Dont know your pincode? Click here to find your area
                 </span>

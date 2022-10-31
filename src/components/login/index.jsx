@@ -90,7 +90,7 @@ const Login = () => {
       {!showOtpField ? (
         <h4 className="fw-bold">Login / Sign-up to get up to ₹199 Off</h4>
       ) : (
-        <h4 className="fw-bold mt-3">Welcome John!</h4>
+        <h4 className="fw-bold ">Welcome John!</h4>
       )}
 
       <form onSubmit={handleOnSubmit}>
@@ -99,7 +99,7 @@ const Login = () => {
           id="number"
           onChange={handleOnchange}
           value={number}
-          className={`${styles.inputField} ${styles.phone} col-12 mx-auto mt-3`}
+          className={`${styles.inputField} ${styles.phone} col-12 mx-auto my-2`}
           placeholder="Enter your phone number"
           required
         />
@@ -108,13 +108,14 @@ const Login = () => {
         )}
         {showOtpField && (
           <div>
-            <div className={`${styles.register_options} mt-3`}>
+            <div className={`${styles.register_options} mt-3 mx-auto`}>
               <OtpInput
                 value={otpValue}
                 onChange={(otp) => handleOtpState(otp)}
                 numInputs={4}
-                separator={<span>-</span>}
+                separator={<span  style={{ marginLeft: "5px" , marginRight :"5px" }} ></span>}
                 isInputNum={true}
+                className="mr-3"
               />
             </div>
           </div>

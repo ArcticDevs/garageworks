@@ -10,7 +10,7 @@ const AdditionalInfo = () => {
   return (
     <div className="row">
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto d-flex flex-column mt-3">
-        <h3 className="text-center mt-2 mb-3">Additional Information</h3>
+        <h4 className="text-center mt-2 mb-3">Additional Information</h4>
         <Link href="/search">
           <div className={styles.info_card}>
             <h5>Do you have any complaints?</h5>
