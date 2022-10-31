@@ -38,7 +38,7 @@ const AdditionalInfo = () => {
           </div>
         </Link>
 
-        <NavigationButton label="Next" bgcolor="#1032b5" navigateTo="/cart" />
+        <NavigationButton label="Next" navigateTo="/cart" />
       </div>
     </div>
   );

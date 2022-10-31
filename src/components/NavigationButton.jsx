@@ -5,7 +5,7 @@ import useBreakpoints from '../cutomHooks/useBreakpoints'
 
 const NavigationButton = ({
   label = "Next",
-  bgcolor = "#1032b5",
+  bgcolor = "#01B9FF",
   navigateTo = "/",
 }) => {
   const router = useRouter();
@@ -14,7 +14,7 @@ const NavigationButton = ({
     <div className="row">
       <div
         className="mx-auto"
-        style={(isMd || isTm || isSm || isXs) ? {position:'absolute',bottom:'10px'} : null}
+        style={(isMd || isTm || isSm || isXs) ? {position:'absolute',bottom:'25px'} : null}
       >
         <button
           className={`${styles.signup_btn} mt-3 w-100`}

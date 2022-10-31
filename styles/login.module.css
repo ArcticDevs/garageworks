@@ -3,6 +3,35 @@
   margin-top: 10%;
   height: 100%;
 }
+
+.login_header h2{
+  color: #313131;
+  font-size: 16px !important;
+  letter-spacing: normal;
+  font-weight: 600 !important;
+  line-height:normal !important;
+}
+
+.input_phone{
+  background-color: #fff !important;
+  border: none;
+  border-bottom: 1px solid #000 !important;
+  border-radius: 0px !important;
+  border-bottom: 2px solid #bfe8f8 !important;
+  text-indent: 0px !important;
+  letter-spacing:1.5px;
+}
+
+.input_phone__cyan:focus{
+  background-color: #fff !important;
+  border-bottom: 2px solid #000 !important;
+}
+
+.input_phone__red:focus{
+  background-color: #fff !important;
+  border-bottom: 2px solid red !important;
+}
+
 .login h1 {
   font-size: 24px;
   letter-spacing: 1px;
@@ -35,7 +64,7 @@
   font-size: 16px;
   letter-spacing: 1px;
 }
-.login_input{
+.login_input {
   background-size: 15px !important;
 }
 .switch_active {
@@ -49,7 +78,6 @@
   background-color: transparent;
   transition: all 0.3s ease;
 }
-
 
 .inputField {
   background-repeat: no-repeat;
@@ -92,16 +120,16 @@
   background-image: url("../src/assets/padlock.png");
 }
 
-.password_field {
-  position: relative !important;
+.otp_field{
+  position: relative !important; 
 }
 
 .show_hide_pw_icon {
   cursor: pointer;
   position: absolute;
-  width: 25px;
-  top: 30px !important;
-  right: 25px;
+  width: 20px;
+  top: 27px !important;
+  right: 20px;
   z-index: 999 !important;
   -webkit-user-select: none;
   /* Safari */
@@ -121,15 +149,27 @@
   border: none;
   background-color: #1032b5;
   color: #fff;
-  padding: 10px;
+  padding: 20px 10px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 10px;
   transition: all 300ms;
+  position: absolute;
+  bottom: 20px;
+  left:3px;
+  right:7px; 
+  width: 100%;
+  
+  text-transform: uppercase;
 }
 
 .signup_btn:hover {
   opacity: 0.8;
+}
+
+.signup_btn h3{
+  font-weight: 800;
+  letter-spacing:px;
 }
 
 .continue_text {
@@ -174,9 +214,22 @@
 }
 
 .invalid {
-  font-size: 12px;
+  font-size: 14px !important;
   color: red;
-  margin: 10px 0;
+  margin: -35px 0 18px 0;
+  animation: fade-top-to-bottom 0.5s;
+  transition: all 300ms
+}
+
+@keyframes fade-top-to-bottom{
+  0%{
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 .register_font_weight {
@@ -193,7 +246,6 @@
 }
 
 @media (max-width: 600px) {
-
   .continue_text:after,
   .continue_text:before {
     width: 100px;
@@ -201,7 +253,6 @@
 }
 
 @media (max-width: 500px) {
-
   .continue_text:after,
   .continue_text:before {
     width: 120px;
@@ -210,7 +261,6 @@
 }
 
 @media (max-width: 380px) {
-
   .continue_text:after,
   .continue_text:before {
     width: 70px;

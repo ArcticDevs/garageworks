@@ -23,9 +23,7 @@ export default function StaticDatePickerDemo() {
     "15:00",
     "17:30",
     "18:00",
-    "18:30",
-    "19:30",
-    "21:00",
+
   ];
 
   return (
@@ -45,14 +43,15 @@ export default function StaticDatePickerDemo() {
               setValue(newValue);
             }}
             renderInput={(params) => <TextField {...params} />}
+            views={["month", "date"]}
           />
         </LocalizationProvider>
       </div>
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto my-1 ">
-        <h3 className={`${styles.date_head}`}>slots available </h3>
-        <div className="mx-auto d-flex flex-wrap">
+        <h3 className={`${styles.date_head} mt-5`}>slots available </h3>
+        <div className="mx-auto d-flex flex-wrap ms-4">
           {timeSlots.map((curr, index) => (
-            <div
+            <h3
               key={index}
               onClick={() => setTimeSlot(index)}
               className={
@@ -62,10 +61,13 @@ export default function StaticDatePickerDemo() {
               }
             >
               {curr}
-            </div>
+            </h3>
           ))}
         </div>
-        <NavigationButton label='Next' bgcolor='#1032b5' navigateTo='/additionalInfo'/>
+        <NavigationButton
+          label="Next"
+          navigateTo="/additionalInfo"
+        />
       </div>
     </div>
   );

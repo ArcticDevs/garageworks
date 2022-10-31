@@ -617,9 +617,9 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <div className="d-flex mx-auto mb-4 col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
+      <div className="d-flex mx-auto mb-4 col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mt-5">
         {couponCode === "" && (
-          <button className={`${styles3.signup_btn} mt-3 w-50`}>
+          <button className={`${styles3.signup_btn} mt-3 w-50`} style={{position: 'relative'}}>
             <Link href="/search">Pay Later</Link>
           </button>
         )}
@@ -628,7 +628,7 @@ const Cart = () => {
           className={`${styles3.signup_btn} mt-3 ${
             couponCode === "" ? "w-50 ms-5" : "w-100"
           }`}
-          style={{ backgroundColor: "#198754" }}
+          style={{ backgroundColor: "#198754",position: 'relative'}}
         >
           <Link href="/cart">Pay Now</Link>
         </button>

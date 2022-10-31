@@ -18,9 +18,8 @@
 }
 
 .address_head {
-  position: relative;
   display: flex;
-  margin: 20px 0 5px;
+  margin: 5px 0 5px;
   justify-content: space-between;
   align-items: center;
 }
@@ -119,6 +118,7 @@
   font-size: 18px;
   font-weight: 500;
   border-radius: 10px;
+  cursor: pointer !important;
   transition: all 300ms;
 }
 
@@ -174,8 +174,6 @@
 .mute {
   font-size: 15px;
   color: grey;
-  margin-top: -12px;
-  position: absolute;
   white-space: nowrap;
 }
 
