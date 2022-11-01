@@ -49,6 +49,15 @@ a {
   overflow: auto;
 }
 
+.Mui-selected  {
+  background-color: #01B9FF !important;
+}
+
+.MuiIconButton-root{
+  user-select: none !important;
+  visibility: hidden !important;
+}
+
 @media(max-width:430px){
   *{
     font-size:14px !important;

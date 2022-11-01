@@ -43,7 +43,8 @@ export default function StaticDatePickerDemo() {
               setValue(newValue);
             }}
             renderInput={(params) => <TextField {...params} />}
-            // views={["month", "date"]}
+            views={["month", "day"]}
+            className="mt-2"
           />
         </LocalizationProvider>
       </div>

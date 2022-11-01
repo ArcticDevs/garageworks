@@ -100,7 +100,7 @@ const Login = () => {
             type="text"
             className={`${styles.inputField} ${styles.input_phone} ${
               showErrorNum ? styles.input_phone__red : styles.input_phone__cyan
-            } col-12 mx-auto my-2 form-control shadow-none`}
+            } col-12 mx-auto form-control shadow-none`}
             id="number"
             placeholder="name@example.com"
             onChange={handleOnchangeNumber}
@@ -116,12 +116,12 @@ const Login = () => {
             className="text-secondary"
             style={{ fontSize: "16px !important", textIndent: "-10px" }}
           >
-            <h3>Enter your phone number*</h3>
+            Enter your phone number*
           </label>
           <div
             className="col-12 text-muted d-flex flex-row-reverse"
             style={{
-              marginTop: "-5px",
+              marginTop: "-2px",
               letterSpacing: "1.5px",
               fontSize: "14px",
             }}
@@ -133,7 +133,7 @@ const Login = () => {
         <div className={`form-floating mt-2 ${styles.otp_field}`}>
           <input
             type={showOTP ? "text" : "password"}
-            className={`${styles.inputField} ${styles.input_phone} col-12 mx-auto my-2 form-control shadow-none`}
+            className={`${styles.inputField} ${styles.input_phone} col-12 mx-auto form-control shadow-none`}
             id="number"
             placeholder="name@example.com"
             onChange={handleOnchangeOTP}
@@ -166,7 +166,7 @@ const Login = () => {
             for="floatingInput"
             className="text-secondary"
           >
-            <h2>Enter the OTP*</h2>
+            Enter the OTP*
           </label>
           <div
             className="col-12 text-muted d-flex flex-row-reverse mt-1"

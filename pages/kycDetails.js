@@ -183,7 +183,7 @@ const KycDetails = () => {
               required
             />
             <Link href="/locate">
-              <span id="pincode" className={`${styles.dontKnowPin}`}>
+              <span id="pincode" className={`${styles.mute}`}>
                 Dont know your pincode? Click here to find your area
               </span>
             </Link>
@@ -211,7 +211,10 @@ const KycDetails = () => {
             />
           </div>
         </div>
-        <NavigationButton label="Next" navigateTo="/bookingSchedule" />
+        <div className='mb-4'>
+
+        <NavigationButton label="Next" navigateTo="/bookingSchedule"/>
+        </div>
       </div>
     </div>
   );

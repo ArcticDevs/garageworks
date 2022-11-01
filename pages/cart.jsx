@@ -600,7 +600,7 @@ const Cart = () => {
               </div>
             ) : (
               <span
-                className="text-danger"
+                style={{ cursor: "pointer" ,color:'#01B9FF'}}
                 onClick={() => setCouponModalShow(true)}
               >
                 Apply Coupon

@@ -128,7 +128,6 @@ const Search = () => {
         </div>
         <NavigationButton
           label="Cart Page"
-          bgcolor="#FFC107"
           navigateTo="/cart"
         />
       </div>
