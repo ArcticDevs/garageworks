@@ -172,20 +172,20 @@ const Login = () => {
               letterSpacing: "0.8px",
             }}
           >
-            <h1 style={{ fontSize: "10px !important" }}>
+            <h1 style={{ fontSize: "10px !important",textShadow: "0 0 0 #000" }}>
               Sent OTP to {number}
             </h1>
           </div>
           <div className="w-100 d-flex justify-content-between mt-4">
             {timer > 0 ? (
-              <h6 className="text-muted" style={{ fontSize: "14px" }}>
+              <h6 className="text-muted" style={{ fontSize: "14px",textShadow: "0 0 0 #000" }}>
                 Resend OTP in 00:{timer < 10 && "0"}
                 {timer}
               </h6>
             ) : (
               <h6
                 className="text-danger"
-                style={{ cursor: "pointer", fontSize: "14px" }}
+                style={{ cursor: "pointer", fontSize: "14px",textShadow: "0 0 0 #000"}}
                 onClick={() => setTimer(15)}
               >
                 {" "}
@@ -204,7 +204,7 @@ const Login = () => {
             )}
             <h6
               className="text-danger"
-              style={{ cursor: "pointer", fontSize: "14px" }}
+              style={{ cursor: "pointer", fontSize: "14px",textShadow: "0 0 0 #000" }}
               onClick={() => setContinueNum(0)}
             >
               Change Number
