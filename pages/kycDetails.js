@@ -5,6 +5,7 @@ import { RiEditFill } from "react-icons/ri";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import NavigationButton from "../src/components/NavigationButton";
+import styles1 from '../styles/login.module.css'
 
 const KycDetails = () => {
   const { state, changeFunc } = useContext(Context);
@@ -97,7 +98,7 @@ const KycDetails = () => {
         <h4 className={`${styles.account_head} fw-bold mt-4 mb-4`}>
           Please share your contact details
         </h4>
-        <div className="card p-3 shadow mb-4" style={{borderRadius:'20px !important'}}>
+        <div className={`card px-3 pb-1 pt-2 shadow mb-4 ${styles.borderRadius}`} >
             <h3 className={styles.address_head}>Contact <span class="badge rounded-pill" style={{backgroundColor:'#bfe8f8',color:'#000'}} onClick={() => {router.push('/?redirect=kyc');changeFunc.modalShow(true);}}>1234567899</span></h3>
           <div className={`${styles.mute} my-3`}>
             Your data is safe. We like spanners & not spammers!
@@ -105,7 +106,7 @@ const KycDetails = () => {
           <form onSubmit={handleOnSubmit}>
             <input
               type="text"
-              className={`${styles.inputField} ${styles.name} col-12 mx-auto mt-1 shadow-sm `}
+              className={`${styles.inputField} ${styles.name} ${styles.padding_input} col-12 mx-auto mt-1 shadow-sm `}
               placeholder="Enter your name"
               autoComplete="off"
               value={name}
@@ -116,7 +117,7 @@ const KycDetails = () => {
 
             <input
               type="email"
-              className={`${styles.inputField} ${styles.email} col-10 mx-auto mt-3 shadow-sm `}
+              className={`${styles.inputField} ${styles.email} ${styles.padding_input} col-10 mx-auto mt-3 shadow-sm `}
               placeholder="Enter your email"
               autoComplete="off"
               value={email}
@@ -136,7 +137,7 @@ const KycDetails = () => {
             <input
               type="text"
               id="number"
-              className={`${styles.inputField} ${styles.phone} col-10 mx-auto mt-3 shadow-sm mb-3`}
+              className={`${styles.inputField} ${styles.phone} ${styles.padding_input} col-10 mx-auto mt-3 shadow-sm mb-3`}
               placeholder="Enter your alternate phone number"
               autoComplete="off"
               onChange={handleOnchange}
@@ -158,7 +159,7 @@ const KycDetails = () => {
           </form>
         </div>
 
-        <div className={`${styles.address_form} card shadow p-3 border rounded`} style={{borderRadius:'20px !important'}}>
+        <div className={`${styles.address_form} ${styles.borderRadius} card shadow px-3 pb-1 pt-2`} >
           <div className={`${styles.address_head} mb-2`}>
             <h3>Address</h3>
             <Link href="/locate">
@@ -174,7 +175,7 @@ const KycDetails = () => {
           <div>
             <input
               type="text"
-              className={`${styles.inputField} col-12 mx-auto mt-1 shadow-sm mb-2`}
+              className={`${styles.inputField} ${styles1.input_phone} ${styles.padding_input} col-12 mx-auto mt-1 shadow-sm mb-2`}
               placeholder="Enter your Pincode"
               autoComplete="off"
               id="pincode"
@@ -190,7 +191,7 @@ const KycDetails = () => {
             {/* <span className={`${styles.mute}`}>Don't know your pincode? Click here to find your area</span> */}
             <input
               type="text"
-              className={`${styles.inputField} col-12 mx-auto mt-3 shadow-sm `}
+              className={`${styles.inputField} ${styles1.input_phone} ${styles.padding_input} col-12 mx-auto mt-3 shadow-sm `}
               placeholder="House/ Flat/ Office No."
               autoComplete="off"
               id="house"
@@ -201,7 +202,7 @@ const KycDetails = () => {
             <textarea
               rows={1}
               type="text"
-              className={`${styles.inputField} col-12 mx-auto mt-3 shadow-sm mb-3`}
+              className={`${styles.inputField} ${styles1.input_phone} ${styles.padding_input} col-12 mx-auto mt-3 shadow-sm mb-3`}
               placeholder="Road Name/ Area/ Colony"
               autoComplete="off"
               id="road"
