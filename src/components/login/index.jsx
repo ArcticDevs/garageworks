@@ -228,7 +228,7 @@ const Login = () => {
       {/* disabling button only when otp field is rendered & otp length is 0*/}
       <div className="d-flex justify-content-center w-100">
         <button
-          className={`${styles.signup_btn} mt-1 w-100`}
+          className={`${styles.signup_btn} mt-1`}
           style={
             continueNum === 0 && number.length > 9
               ? { backgroundColor: "#01B9FF" }
