@@ -4,8 +4,10 @@ import { Button } from "react-bootstrap";
 import styles from "../styles/date_and_additional_info.module.css";
 import { useRouter } from "next/router";
 import NavigationButton from "../src/components/NavigationButton";
+import styles1 from '../styles/login.module.css'
 
 const AdditionalInfo = () => {
+  const router = useRouter()
   return (
     <div className="row">
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto d-flex flex-column mt-3">
@@ -38,7 +40,15 @@ const AdditionalInfo = () => {
           </div>
         </Link>
 
-        <NavigationButton label="Next" navigateTo="/cart" />
+        <div className="d-flex justify-content-center w-100">
+          <button
+            style={{ backgroundColor: "#01B9FF" }}
+            className={`${styles1.signup_btn} mt-1`}
+            onClick={() => router.push("/cart")}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );

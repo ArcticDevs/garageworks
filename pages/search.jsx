@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "../styles/search.module.css";
 import styles1 from "../styles/account.module.css";
+import styles2 from "../styles/login.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { Button } from "react-bootstrap";
@@ -126,10 +127,15 @@ const Search = () => {
             <h5 className="text-center mx-auto">No Spares Selected</h5>
           )}
         </div>
-        <NavigationButton
-          label="Cart Page"
-          navigateTo="/cart"
-        />
+      </div>
+      <div className="d-flex justify-content-center w-100">
+        <button
+          style={{ backgroundColor: "#01B9FF" }}
+          className={`${styles2.signup_btn} mt-1`}
+          onClick={() => router.push("/cart")}
+        >
+          Cart Page
+        </button>
       </div>
     </div>
   );

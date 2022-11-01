@@ -11,10 +11,9 @@ const NavigationButton = ({
   const router = useRouter();
   const {isMd,isTm,isSm,isXs} = useBreakpoints();
   return (
-    <div className="row">
+    <div className="row d-flex justify-content-center w-100 mx-auto">
       <div
         className="mx-auto"
-        style={(isMd || isTm || isSm || isXs ) ? {position:'absolute'} : null}
       >
         <button
           className={`${styles.signup_btn} mt-3 w-100`}

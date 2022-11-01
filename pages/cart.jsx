@@ -609,7 +609,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <div className="d-flex mx-auto mb-4 col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mt-3">
+      <div className="d-flex mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mt-4">
         {couponCode === "" && (
           <button
             className={`${styles3.signup_btn} mt-3 w-50`}
@@ -620,7 +620,7 @@ const Cart = () => {
         )}
 
         <button
-          className={`${styles3.signup_btn} mt-3 ${
+          className={`${styles3.signup_btn} mt-4 ${
             couponCode === "" ? "w-50 ms-5" : "w-100"
           }`}
           style={{ backgroundColor: "#198754", position: "relative" }}

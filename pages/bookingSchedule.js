@@ -10,29 +10,26 @@ import { useRouter } from "next/router";
 import { Link } from "@mui/material";
 import styles1 from "../styles/login.module.css";
 import NavigationButton from "../src/components/NavigationButton";
+import useBreakpoints from "../src/cutomHooks/useBreakpoints";
 
 export default function StaticDatePickerDemo() {
   const [value, setValue] = useState(dayjs(new Date()));
   const [timeSlot, setTimeSlot] = useState(0);
+  const { isMd, isTm, isSm, isXs } = useBreakpoints();
 
   const router = useRouter();
 
-  const timeSlots = [
-    "11:00",
-    "14:30",
-    "15:00",
-    "17:30",
-    "18:00",
-
-  ];
+  const timeSlots = ["11:00", "14:30", "15:00", "17:30", "18:00"];
 
   return (
     <div
-      className="row d-flex flex-column ml-3"
+      className="row d-flex flex-column ml-3 card p-3"
       style={{ maxWidth: "100%", overflow: "hidden", marginLeft: "-2px" }}
     >
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
-        <h4 className="text-center my-2 fw-bold">Select Preferred Date and Time</h4>
+        <h4 className="text-center my-2 fw-bold">
+          Select Preferred Date and Time
+        </h4>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <StaticDatePicker
             displayStaticWrapperAs="desktop"
@@ -65,10 +62,15 @@ export default function StaticDatePickerDemo() {
             </span>
           ))}
         </div>
-        <NavigationButton
-          label="Next"
-          navigateTo="/additionalInfo"
-        />
+        <div className="d-flex justify-content-center w-100">
+          <button
+            style={{ backgroundColor: "#01B9FF" }}
+            className={`${styles1.signup_btn} mt-1`}
+            onClick={() => router.push("/additionalInfo")}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );
