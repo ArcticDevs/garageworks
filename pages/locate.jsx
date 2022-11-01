@@ -7,7 +7,7 @@ const Locate = () => {
   const router = useRouter();
 
   const handleSelectLocation = () =>{
-    localStorage.setItem("locationSet",true)
+    sessionStorage.setItem("locationSet",true)
     router.push('/kycDetails')
   }
 

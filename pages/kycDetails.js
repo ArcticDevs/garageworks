@@ -66,8 +66,8 @@ const KycDetails = () => {
   // }, [navigator.geolocation])
 
   useEffect(() => {
-    if(localStorage.getItem("locationSet")){
-      setDisplayFields(localStorage.getItem("locationSet"))
+    if(sessionStorage.getItem("locationSet")){
+      setDisplayFields(sessionStorage.getItem("locationSet"))
     }
   },[])
 
