@@ -66,10 +66,16 @@ const KycDetails = () => {
   // }, [navigator.geolocation])
 
   useEffect(() => {
-    if(sessionStorage.getItem("locationSet")){
-      setDisplayFields(sessionStorage.getItem("locationSet"))
+    if (sessionStorage.getItem("locationSet")) {
+      setDisplayFields(sessionStorage.getItem("locationSet"));
+      setFormData({
+        ...formData,
+        pincode: "382007",
+        house: "Parking lot no.2",
+        road: "Pune Airport Road",
+      })
     }
-  },[])
+  }, []);
 
   const handleReverseBack = () => {
     router.push("/");
@@ -80,9 +86,9 @@ const KycDetails = () => {
     number: "",
     name: "",
     email: "",
-    pincode: "382007",
-    house: "Parking lot no.2",
-    road: "Pune Airport Road",
+    pincode: "",
+    house: "",
+    road: "",
   });
 
   const { number, pincode, name, email, house, road } = formData;
@@ -105,12 +111,6 @@ const KycDetails = () => {
   };
 
   const handleLocation = () => {
-    setFormData({
-      ...formData,
-      pincode: "201310",
-      house: "D12",
-      road: "Pari-Chowk, Greater Noida",
-    });
   };
 
   return (
@@ -250,7 +250,9 @@ const KycDetails = () => {
         </div>
 
         <div
-          className={`${styles.address_form} ${styles.borderRadius} card shadow px-3 pt-2 ${displayFields ? 'pb-1' : 'pb-3'}`}
+          className={`${styles.address_form} ${
+            styles.borderRadius
+          } card shadow px-3 pt-2 ${displayFields ? "pb-1" : "pb-3"}`}
         >
           <div className={`${styles.address_head} mb-2`}>
             <h3>Address</h3>
