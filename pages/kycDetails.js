@@ -97,7 +97,7 @@ const KycDetails = () => {
         <h4 className={`${styles.account_head} fw-bold mt-4 mb-4`}>
           Please share your contact details
         </h4>
-        <div className="card p-3 shadow-md mb-4" style={{borderRadius:'20px !important'}}>
+        <div className="card p-3 shadow mb-4" style={{borderRadius:'20px !important'}}>
             <h3 className={styles.address_head}>Contact <span class="badge rounded-pill" style={{backgroundColor:'#bfe8f8',color:'#000'}} onClick={() => {router.push('/?redirect=kyc');changeFunc.modalShow(true);}}>1234567899</span></h3>
           <div className={`${styles.mute} my-3`}>
             Your data is safe. We like spanners & not spammers!
@@ -158,7 +158,7 @@ const KycDetails = () => {
           </form>
         </div>
 
-        <div className={`${styles.address_form} card shadow-md p-3 border rounded`} style={{borderRadius:'20px !important'}}>
+        <div className={`${styles.address_form} card shadow p-3 border rounded`} style={{borderRadius:'20px !important'}}>
           <div className={`${styles.address_head} mb-2`}>
             <h3>Address</h3>
             <Link href="/locate">

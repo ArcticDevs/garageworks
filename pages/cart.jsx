@@ -251,7 +251,7 @@ const Cart = () => {
             >
               <h3 className="fw-bold">Complete Car ...</h3>
               <h3 className="my-2">(Fully Synthetic)</h3>
-              <h4 className="fw-bold text-danger">₹6,986</h4>
+              <h4 className="fw-bold" style={{color:'#01B9FF'}}>₹6,986</h4>
               {/* <div>
                 <Dropdown>
                   <Dropdown.Toggle
