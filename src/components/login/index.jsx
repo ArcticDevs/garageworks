@@ -165,9 +165,8 @@ const Login = () => {
           <label
             for="floatingInput"
             className="text-secondary"
-            style={{ fontSize: "14px" }}
           >
-            Enter the OTP*
+            <h2>Enter the OTP*</h2>
           </label>
           <div
             className="col-12 text-muted d-flex flex-row-reverse mt-1"
@@ -237,7 +236,7 @@ const Login = () => {
         }
         onClick={handleContinue}
       >
-        <h3>Continue</h3>
+        Continue
       </button>
     </div>
   );

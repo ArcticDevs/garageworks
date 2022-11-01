@@ -32,7 +32,7 @@ export default function StaticDatePickerDemo() {
       style={{ maxWidth: "100%", overflow: "hidden", marginLeft: "-2px" }}
     >
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
-        <h4 className="text-center my-4 fw-bold">Select Preferred Date and Time</h4>
+        <h4 className="text-center my-2 fw-bold">Select Preferred Date and Time</h4>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <StaticDatePicker
             displayStaticWrapperAs="desktop"
@@ -48,10 +48,10 @@ export default function StaticDatePickerDemo() {
         </LocalizationProvider>
       </div>
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto my-1 ">
-        <h3 className={`${styles.date_head} mt-5`}>slots available </h3>
+        <h3 className={`${styles.date_head} my-2`}>slots available </h3>
         <div className="mx-auto d-flex flex-wrap ms-4">
           {timeSlots.map((curr, index) => (
-            <h3
+            <span
               key={index}
               onClick={() => setTimeSlot(index)}
               className={
@@ -61,7 +61,7 @@ export default function StaticDatePickerDemo() {
               }
             >
               {curr}
-            </h3>
+            </span>
           ))}
         </div>
         <NavigationButton

@@ -18,6 +18,8 @@ function CustomToggle({ children, eventKey }) {
 
   const [clicked, setClicked] = useState(false);
 
+  const router = useRouter();
+
   return (
     <div
       style={{
@@ -26,7 +28,7 @@ function CustomToggle({ children, eventKey }) {
         fontSize: "20px",
         backgroundColor: "none",
         cursor: "pointer",
-        color: "#ee3c2f",
+        color: "#01B9FF",
         userSelect: "none",
         display: "flex",
         alignItems: "center",
@@ -38,6 +40,13 @@ function CustomToggle({ children, eventKey }) {
       }}
     >
       {children}
+      <div>
+      <svg style={{ width: "24px" }} viewBox="0 0 24 24" onClick={() => router.push("/search")} className='me-3'>
+        <path
+          fill="currentColor"
+          d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"
+        />
+      </svg>
       {clicked ? (
         <svg style={{ width: "24px" }} viewBox="0 0 24 24">
           <path fill="currentColor" d="M19,13H5V11H19V13Z" />
@@ -50,6 +59,7 @@ function CustomToggle({ children, eventKey }) {
           />
         </svg>
       )}
+      </div>     
     </div>
   );
 }
@@ -373,13 +383,6 @@ const Cart = () => {
                       </h5>
                     )}
                   </div>
-                  <button
-                    className={`${styles3.signup_btn} mt-3 w-50`}
-                    onClick={() => router.push("/search")}
-                    style={{ backgroundColor: "#FFC107" }}
-                  >
-                    Edit
-                  </button>
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
@@ -421,14 +424,7 @@ const Cart = () => {
                         No Spares Selected
                       </h5>
                     )}
-                  </div>
-                  <button
-                    className={`${styles3.signup_btn} mt-3 w-50`}
-                    onClick={() => router.push("/search")}
-                    style={{ backgroundColor: "#FFC107" }}
-                  >
-                    Edit
-                  </button>
+                  </div>                  
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
@@ -470,14 +466,7 @@ const Cart = () => {
                         No Spares Selected
                       </h5>
                     )}
-                  </div>
-                  <button
-                    className={`${styles3.signup_btn} mt-3 w-50`}
-                    onClick={() => router.push("/search")}
-                    style={{ backgroundColor: "#FFC107" }}
-                  >
-                    Edit
-                  </button>
+                  </div>                 
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
@@ -485,17 +474,20 @@ const Cart = () => {
         </div>
       </div>
       <div className="mt-3 mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 border p-3 rounded">
-        
-          <h2 className="fw-bold">Additional infomation</h2>
-          {/* <span
+        <h2 className="fw-bold">Additional infomation</h2>
+        {/* <span
             className="fw-bold text-danger"
             style={{ cursor: "pointer" }}
             onClick={() => setIssueModalShow(true)}
           >
             + Add Issues
           </span> */}
-          <textarea className="border rounded w-100 p-2 mt-2" rows="5" placeholder="Enter Your Issue Here ..."></textarea>
-        
+        <textarea
+          className="border rounded w-100 p-2 mt-2"
+          rows="5"
+          placeholder="Enter Your Issue Here ..."
+        ></textarea>
+
         {/* <IssueModal
           show={issueModalShow}
           onHide={() => setIssueModalShow(false)}
@@ -617,9 +609,12 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <div className="d-flex mx-auto mb-4 col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mt-5">
+      <div className="d-flex mx-auto mb-4 col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mt-3">
         {couponCode === "" && (
-          <button className={`${styles3.signup_btn} mt-3 w-50`} style={{position: 'relative'}}>
+          <button
+            className={`${styles3.signup_btn} mt-3 w-50`}
+            style={{ position: "relative" }}
+          >
             <Link href="/search">Pay Later</Link>
           </button>
         )}
@@ -628,7 +623,7 @@ const Cart = () => {
           className={`${styles3.signup_btn} mt-3 ${
             couponCode === "" ? "w-50 ms-5" : "w-100"
           }`}
-          style={{ backgroundColor: "#198754",position: 'relative'}}
+          style={{ backgroundColor: "#198754", position: "relative" }}
         >
           <Link href="/cart">Pay Now</Link>
         </button>

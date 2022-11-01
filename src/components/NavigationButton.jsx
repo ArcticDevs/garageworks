@@ -14,7 +14,7 @@ const NavigationButton = ({
     <div className="row">
       <div
         className="mx-auto"
-        style={(isMd || isTm || isSm || isXs) ? {position:'absolute',bottom:'25px'} : null}
+        style={(isMd || isTm || isSm || isXs ) ? {position:'absolute'} : null}
       >
         <button
           className={`${styles.signup_btn} mt-3 w-100`}

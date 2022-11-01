@@ -17,7 +17,7 @@
 
 .timeSlot_selected{
     color:#fff;
-    background-color: rgb(73, 73, 244);
+    background-color: #01B9FF;
     border-radius: 10px
 }
 
@@ -38,13 +38,13 @@
 }
 
 .info_card:hover{
-    box-shadow: inset 0 0 0 2px rgb(73, 73, 244);
+    box-shadow: inset 0 0 0 2px #01B9FF;
     cursor: pointer;
     padding: 20px;
 }
 
 .info_card:hover h5{
-    color:rgb(73, 73, 244);
+    color:#01B9FF;
 }
 
 @media(max-width:768px){
@@ -53,11 +53,11 @@
     }
     
     .info_card{
-        box-shadow: inset 0 0 0 2px rgb(73, 73, 244);
+        box-shadow: inset 0 0 0 2px #01B9FF;
     }
 
     .info_card h5{
-        color:rgb(73, 73, 244);
+        color:#01B9FF;
     }
 
 
