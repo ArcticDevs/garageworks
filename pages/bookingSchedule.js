@@ -23,8 +23,7 @@ export default function StaticDatePickerDemo() {
 
   return (
     <div
-      className="row d-flex flex-column ml-3 card p-3"
-      style={{ maxWidth: "100%", overflow: "hidden", marginLeft: "-2px" }}
+      className="row d-flex flex-column card p-3"
     >
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
         <h4 className="text-center my-2 fw-bold">
@@ -47,7 +46,7 @@ export default function StaticDatePickerDemo() {
       </div>
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto my-1 ">
         <h3 className={`${styles.date_head} my-2`}>slots available </h3>
-        <div className="mx-auto d-flex flex-wrap ms-4">
+        <div className="mx-auto d-flex flex-wrap col-10">
           {timeSlots.map((curr, index) => (
             <span
               key={index}
