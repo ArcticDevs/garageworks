@@ -23,7 +23,7 @@ export default function StaticDatePickerDemo() {
 
   return (
     <div
-      className="row d-flex flex-column card p-3"
+      className="row d-flex flex-column card p-3 mx-1"
     >
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
         <h4 className="text-center my-2 fw-bold">
