@@ -94,7 +94,7 @@ const KycDetails = () => {
 
   return (
     <div className="row">
-      <div className="pb-5 mx-auto col-xxl-6 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
+      <div className="mx-auto col-xxl-6 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
         <h4 className={`${styles.account_head} fw-bold mt-4 mb-4`}>
           Please share your contact details
         </h4>
