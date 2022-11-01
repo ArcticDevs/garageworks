@@ -10,7 +10,7 @@ const Login = () => {
   const { state, changeFunc } = useContext(Context);
 
   const router = useRouter();
-  const {redirect} = router.query
+  const { redirect } = router.query;
 
   const [showErrorOtp, setShowErrorOtp] = useState(false);
   const [showErrorNum, setShowErrorNum] = useState(false);
@@ -20,10 +20,10 @@ const Login = () => {
   const [showOTP, setShowOTP] = useState(false);
 
   useEffect(() => {
-    if(redirect === "kyc") {
-      setNumber("1234567899")
+    if (redirect === "kyc") {
+      setNumber("1234567899");
     }
-  },[redirect,router.query])
+  }, [redirect, router.query]);
 
   //number input on change
   const handleOnchangeNumber = (e) => {
@@ -55,12 +55,12 @@ const Login = () => {
 
   //conitnueNum change handler func
   const handleContinue = () => {
-    setShowErrorNum(false)
+    setShowErrorNum(false);
     setShowErrorOtp(false);
     if (continueNum === 0 && !showErrorNum) {
       setContinueNum(1);
-      setOTP("")
-      setTimer(15)
+      setOTP("");
+      setTimer(15);
     } else if (continueNum === 1 && !showErrorNum && !showErrorOtp) {
       setContinueNum(0);
       changeFunc.modalShow(false);
@@ -89,7 +89,7 @@ const Login = () => {
             Signup or Login
           </h2>
         ) : (
-          continueNum === 1 && <h2 className='mb-1'>Please enter the OTP</h2>
+          continueNum === 1 && <h2 className="mb-1">Please enter the OTP</h2>
         )}
       </div>
 
@@ -162,20 +162,19 @@ const Login = () => {
               />
             </svg>
           )}
-          <label
-            for="floatingInput"
-            className="text-secondary"
-          >
+          <label for="floatingInput" className="text-secondary">
             Enter the OTP*
           </label>
           <div
             className="col-12 text-muted d-flex flex-row-reverse mt-1"
             style={{
               marginTop: "-8px",
-              letterSpacing: "0.8px"
+              letterSpacing: "0.8px",
             }}
           >
-            <h1 style={{ fontSize: "10px !important"}}>Sent OTP to {number}</h1> 
+            <h1 style={{ fontSize: "10px !important" }}>
+              Sent OTP to {number}
+            </h1>
           </div>
           <div className="w-100 d-flex justify-content-between mt-4">
             {timer > 0 ? (
@@ -221,23 +220,27 @@ const Login = () => {
 
       {/* error msg when otp is incorrect*/}
       {showErrorOtp && (
-        <h2 className={styles.invalid} style={{marginTop:'-63px'}}>Invalid OTP</h2>
+        <h2 className={styles.invalid} style={{ marginTop: "-63px" }}>
+          Invalid OTP
+        </h2>
       )}
 
       {/* disabling button only when otp field is rendered & otp length is 0*/}
-      <button
-        className={`${styles.signup_btn} mt-1`}
-        style={
-          continueNum === 0 && number.length > 9
-            ? { backgroundColor: "#01B9FF" }
-            : continueNum === 1 && otp.length > 1
-            ? { backgroundColor: "#01B9FF" }
-            : { backgroundColor: "rgb(148, 149, 150)" }
-        }
-        onClick={handleContinue}
-      >
-        Continue
-      </button>
+      <div className="d-flex justify-content-center w-100">
+        <button
+          className={`${styles.signup_btn} mt-1 w-100`}
+          style={
+            continueNum === 0 && number.length > 9
+              ? { backgroundColor: "#01B9FF" }
+              : continueNum === 1 && otp.length > 1
+              ? { backgroundColor: "#01B9FF" }
+              : { backgroundColor: "rgb(148, 149, 150)" }
+          }
+          onClick={handleContinue}
+        >
+          Continue
+        </button>
+      </div>
     </div>
   );
 };
