@@ -1,7 +1,16 @@
 import React from "react";
 import styles from "../styles/locate.module.css";
+import { useRouter } from "next/router";
 
-const locate = () => {
+const Locate = () => {
+
+  const router = useRouter();
+
+  const handleSelectLocation = () =>{
+    localStorage.setItem("locationSet",true)
+    router.push('/kycDetails')
+  }
+
   return (
     <div className="row">
       <div className="mx-auto col-xxl-6 col-xl-9 col-lg-8 col-md-10 col-sm-12 col-12">
@@ -39,7 +48,7 @@ const locate = () => {
         </div>
         <div className="col-xxl-8 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
           <h2 className={styles.locate_suggestions}>Recently Searched Locations</h2>
-          <h4 className={styles.locate_head}>
+          <h4 className={styles.locate_head} onClick={handleSelectLocation}>
             {" "}
             <svg viewBox="0 0 24 24">
               <path
@@ -50,7 +59,7 @@ const locate = () => {
             <span>Parking lot no.2, Pune Airport</span>{" "}
           </h4>
           <hr />
-          <h4 className={styles.locate_head}>
+          <h4 className={styles.locate_head} onClick={handleSelectLocation}>
             {" "}
             <svg viewBox="0 0 24 24">
               <path
@@ -63,7 +72,7 @@ const locate = () => {
         </div>
         <div className="col-xxl-10 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
           <h2 className={styles.locate_suggestions}>Suggested Pickup Locations</h2>
-          <h4 className={styles.locate_head}>
+          <h4 className={styles.locate_head} onClick={handleSelectLocation}>
             {" "}
             <svg viewBox="0 0 24 24">
               <path
@@ -74,7 +83,7 @@ const locate = () => {
             <span>Parking lot no.2, Pune Airport</span>{" "}
           </h4>{" "}
           <hr />
-          <h4 className={styles.locate_head}>
+          <h4 className={styles.locate_head} onClick={handleSelectLocation}>
             {" "}
             <svg viewBox="0 0 24 24">
               <path
@@ -90,4 +99,4 @@ const locate = () => {
   );
 };
 
-export default locate;
+export default Locate;

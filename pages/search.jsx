@@ -67,7 +67,7 @@ const Search = () => {
   };
 
   return (
-    <div className="row d-flex flex-column mx-auto">
+    <div className="row d-flex flex-column mx-auto" >
       <div className="col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
         <input
           type="text"

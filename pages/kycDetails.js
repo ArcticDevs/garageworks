@@ -1,11 +1,24 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../src/context";
 import styles from "../styles/account.module.css";
 import { RiEditFill } from "react-icons/ri";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import NavigationButton from "../src/components/NavigationButton";
-import styles1 from '../styles/login.module.css'
+import styles1 from "../styles/login.module.css";
+import Box from "@mui/material/Box";
+import Input from "@mui/material/Input";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormControl from "@mui/material/FormControl";
+import TextField from "@mui/material/TextField";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import LocalPostOfficeIcon from "@mui/icons-material/LocalPostOffice";
+import PhoneIcon from "@mui/icons-material/Phone";
+import GpsNotFixedIcon from "@mui/icons-material/GpsNotFixed";
+import HomeIcon from "@mui/icons-material/Home";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const KycDetails = () => {
   const { state, changeFunc } = useContext(Context);
@@ -26,6 +39,8 @@ const KycDetails = () => {
   const [showErrorNum, setShowErrorNum] = useState(false);
 
   const [checkboxValue, setCheckboxValue] = useState(true);
+
+  const [displayFields, setDisplayFields] = useState(false);
 
   // const [showOtpField, setShowOtpField] = useState(false);
 
@@ -50,6 +65,12 @@ const KycDetails = () => {
   //     }
   // }, [navigator.geolocation])
 
+  useEffect(() => {
+    if(localStorage.getItem("locationSet")){
+      setDisplayFields(localStorage.getItem("locationSet"))
+    }
+  },[])
+
   const handleReverseBack = () => {
     router.push("/");
     changeFunc.modalShow(true);
@@ -68,13 +89,13 @@ const KycDetails = () => {
 
   const handleOnchange = (e) => {
     setShowErrorNum(false);
-    if (e.target.value.length >= 10 && e.target.id === "number") {
+    if (e.target.value.length >= 10 && e.target.name === "number") {
       setFormData({
         ...formData,
-        [e.target.id]: e.target.value.slice(0, 10),
+        [e.target.name]: e.target.value.slice(0, 10),
       });
     } else {
-      setFormData({ ...formData, [e.target.id]: e.target.value });
+      setFormData({ ...formData, [e.target.name]: e.target.value });
     }
   };
 
@@ -93,18 +114,32 @@ const KycDetails = () => {
   };
 
   return (
-    <div className="row">
+    <div
+      className="row"
+      style={{ backgroundColor: "#e9e7e7", height: "100vh" }}
+    >
       <div className="mx-auto col-xxl-6 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12">
         <h4 className={`${styles.account_head} fw-bold mt-4 mb-4`}>
           Please share your contact details
         </h4>
-        <div className={`card px-3 pb-1 pt-2 shadow mb-4 ${styles.borderRadius}`} >
-            <h3 className={styles.address_head}>Contact <span class="badge rounded-pill" style={{backgroundColor:'#bfe8f8',color:'#000'}} onClick={() => {router.push('/?redirect=kyc');changeFunc.modalShow(true);}}>1234567899</span></h3>
-          <div className={`${styles.mute} my-3`}>
-            Your data is safe. We like spanners & not spammers!
-          </div>
+        <div
+          className={`card px-3 pb-1 pt-2 shadow mb-4 ${styles.borderRadius}`}
+        >
+          <h3 className={`${styles.address_head} fw-bold`}>
+            <h3>Contact</h3>{" "}
+            <span
+              className="badge rounded-pill"
+              style={{ backgroundColor: "#bfe8f8", color: "#000" }}
+              onClick={() => {
+                router.push("/?redirect=kyc");
+                changeFunc.modalShow(true);
+              }}
+            >
+              1234567899
+            </span>
+          </h3>
           <form onSubmit={handleOnSubmit}>
-            <input
+            {/* <input
               type="text"
               className={`${styles.inputField} ${styles.name} ${styles.padding_input} col-12 mx-auto mt-1 shadow-sm `}
               placeholder="Enter your name"
@@ -113,9 +148,25 @@ const KycDetails = () => {
               id="name"
               onChange={handleOnchange}
               required
-            />
+            /> */}
+            <FormControl variant="standard" className="w-100 mb-2">
+              <Input
+                id="input-with-icon-adornment"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <AccountCircle />
+                  </InputAdornment>
+                }
+                placeholder="Enter your name"
+                autoComplete="off"
+                name="name"
+                value={name}
+                onChange={handleOnchange}
+                className="p-1"
+              />
+            </FormControl>
 
-            <input
+            {/* <input
               type="email"
               className={`${styles.inputField} ${styles.email} ${styles.padding_input} col-10 mx-auto mt-3 shadow-sm `}
               placeholder="Enter your email"
@@ -123,18 +174,37 @@ const KycDetails = () => {
               value={email}
               id="email"
               onChange={handleOnchange}
-            />
-            <button
-              type="button"
-              className="btn col-2"
-              data-bs-toggle="tooltip"
-              data-bs-placement="top"
-              title="*Invoice & Follow-on estimates will be sent on email"
+            /> */}
+            <FormControl
+              variant="standard"
+              className="my-2 d-flex flex-row col-12"
             >
-              !
-            </button>
+              <Input
+                id="input-with-icon-adornment"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <LocalPostOfficeIcon />
+                  </InputAdornment>
+                }
+                placeholder="Enter your email"
+                autoComplete="off"
+                name="email"
+                value={email}
+                onChange={handleOnchange}
+                className="p-1 col-10"
+              />
+              <button
+                type="button"
+                className="btn col-2"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="*Invoice & Follow-on estimates will be sent on email"
+              >
+                !
+              </button>
+            </FormControl>
 
-            <input
+            {/* <input
               type="text"
               id="number"
               className={`${styles.inputField} ${styles.phone} ${styles.padding_input} col-10 mx-auto mt-3 shadow-sm mb-3`}
@@ -142,16 +212,36 @@ const KycDetails = () => {
               autoComplete="off"
               onChange={handleOnchange}
               value={number}
-            />
-            <button
-              type="button"
-              className="btn col-2"
-              data-bs-toggle="tooltip"
-              data-bs-placement="top"
-              title=" *Alternate contact is helpful in case they are not reachable at time of service"
+            /> */}
+            <FormControl
+              variant="standard"
+              className="my-2 d-flex flex-row col-12 mb-3"
             >
-              !
-            </button>
+              <Input
+                id="input-with-icon-adornment"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <PhoneIcon />
+                  </InputAdornment>
+                }
+                placeholder="Enter your alternate phone number"
+                autoComplete="off"
+                name="number"
+                value={number}
+                onChange={handleOnchange}
+                className="p-1 col-10"
+                type="number"
+              />
+              <button
+                type="button"
+                className="btn col-2"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="*Invoice & Follow-on estimates will be sent on email"
+              >
+                !
+              </button>
+            </FormControl>
 
             {showErrorNum && (
               <h4 className={styles.invalid}>Please provide a valid Number.</h4>
@@ -159,12 +249,18 @@ const KycDetails = () => {
           </form>
         </div>
 
-        <div className={`${styles.address_form} ${styles.borderRadius} card shadow px-3 pb-1 pt-2`} >
+        <div
+          className={`${styles.address_form} ${styles.borderRadius} card shadow px-3 pt-2 ${displayFields ? 'pb-1' : 'pb-3'}`}
+        >
           <div className={`${styles.address_head} mb-2`}>
             <h3>Address</h3>
             <Link href="/locate">
-              <button type="button" onClick={handleLocation}>
-                Locate you?
+              <button
+                type="button"
+                onClick={handleLocation}
+                className="d-flex align-items-center"
+              >
+                <LocationOnIcon className="mb-1 me-1" /> Locate you?
               </button>
             </Link>
           </div>
@@ -173,7 +269,7 @@ const KycDetails = () => {
           )}
           <div>{/* <Map userAddress={userLocation} /> */}</div>
           <div>
-            <input
+            {/* <input
               type="text"
               className={`${styles.inputField} ${styles1.input_phone} ${styles.padding_input} col-12 mx-auto mt-1 shadow-sm mb-2`}
               placeholder="Enter your Pincode"
@@ -182,14 +278,31 @@ const KycDetails = () => {
               value={pincode}
               onChange={handleOnchange}
               required
-            />
+            /> */}
+            <FormControl variant="standard" className="col-12 mb-2">
+              <Input
+                id="input-with-icon-adornment"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <GpsNotFixedIcon />
+                  </InputAdornment>
+                }
+                placeholder="Enter your pincode"
+                autoComplete="off"
+                name="pincode"
+                value={pincode}
+                onChange={handleOnchange}
+                type="number"
+                className="p-1"
+              />
+            </FormControl>
             <Link href="/locate">
-              <span id="pincode" className={`${styles.mute}`}>
+              <span id="pincode" className={styles.mute}>
                 Dont know your pincode? Click here to find your area
               </span>
             </Link>
             {/* <span className={`${styles.mute}`}>Don't know your pincode? Click here to find your area</span> */}
-            <input
+            {/* <input
               type="text"
               className={`${styles.inputField} ${styles1.input_phone} ${styles.padding_input} col-12 mx-auto mt-3 shadow-sm `}
               placeholder="House/ Flat/ Office No."
@@ -198,8 +311,26 @@ const KycDetails = () => {
               value={house}
               onChange={handleOnchange}
               required
-            />
-            <textarea
+            /> */}
+            {displayFields && (
+              <FormControl variant="standard" className="col-12 my-2">
+                <Input
+                  id="input-with-icon-adornment"
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <HomeIcon />
+                    </InputAdornment>
+                  }
+                  placeholder="House/ Flat/ Office No."
+                  autoComplete="off"
+                  name="house"
+                  value={house}
+                  onChange={handleOnchange}
+                  className="p-1"
+                />
+              </FormControl>
+            )}
+            {/* <textarea
               rows={1}
               type="text"
               className={`${styles.inputField} ${styles1.input_phone} ${styles.padding_input} col-12 mx-auto mt-3 shadow-sm mb-3`}
@@ -209,12 +340,26 @@ const KycDetails = () => {
               value={road}
               onChange={handleOnchange}
               required
-            />
+            /> */}
+            {displayFields && (
+              <TextareaAutosize
+                type="text"
+                aria-label="minimum height"
+                minRows={1}
+                placeholder="Road Name/ Area/ Colony"
+                value={road}
+                name="road"
+                onChange={handleOnchange}
+                className="p-2 col-12 my-2 border rounded"
+              />
+            )}
           </div>
         </div>
-        <div className='mb-4'>
-
-        <NavigationButton label="Next" navigateTo="/bookingSchedule"/>
+        <div className={`${styles.mute} mt-3 text-center fw-bold`}>
+          Your data is safe. We like spanners & not spammers!
+        </div>
+        <div className="mb-4">
+          <NavigationButton label="Next" navigateTo="/bookingSchedule" />
         </div>
       </div>
     </div>

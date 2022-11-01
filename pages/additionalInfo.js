@@ -9,7 +9,7 @@ import styles1 from '../styles/login.module.css'
 const AdditionalInfo = () => {
   const router = useRouter()
   return (
-    <div className="row">
+    <div className="row"  style={{ backgroundColor: "#e9e7e7", height: "100vh" }}>
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto d-flex flex-column mt-3">
         <h4 className="text-center mt-2 mb-3">Additional Information</h4>
         <Link href="/search">

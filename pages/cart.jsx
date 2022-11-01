@@ -192,7 +192,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="row d-flex flex-column">
+    <div className="row d-flex flex-column" >
       <div className="d-flex align-items-center mx-auto col-xxl-5 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-11 border p-3 rounded">
         <div
           className=""
