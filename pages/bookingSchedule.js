@@ -32,7 +32,7 @@ export default function StaticDatePickerDemo() {
       style={{ maxWidth: "100%", overflow: "hidden", marginLeft: "-2px" }}
     >
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
-        <h4 className="text-center my-4">Select Preferred Date and Time</h4>
+        <h4 className="text-center my-4 fw-bold">Select Preferred Date and Time</h4>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <StaticDatePicker
             displayStaticWrapperAs="desktop"
@@ -43,7 +43,7 @@ export default function StaticDatePickerDemo() {
               setValue(newValue);
             }}
             renderInput={(params) => <TextField {...params} />}
-            views={["month", "date"]}
+            // views={["month", "date"]}
           />
         </LocalizationProvider>
       </div>
