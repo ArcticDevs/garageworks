@@ -291,13 +291,13 @@ const KycDetails = () => {
               </FormControl>
             )}
             <Link href="/locate">
-              <span id="pincode" className={`${styles.mute} d-flex align-items-center justify-content-center`}>
+              <span id="pincode" className={`${styles.mute} d-flex align-items-center justify-content-center flex-column-reverse`}>
                 Dont know your pincode? Click here to find your area
                 <Link href="/locate">
               <button
                 type="button"
                 onClick={handleLocation}
-                className={`${styles.locate_btn} d-flex align-items-center ms-2`}
+                className={`${styles.locate_btn} d-flex align-items-center me-auto my-2 mt-2`}
               >
                 <LocationOnIcon className="mb-1 me-1" /> Locate you?
               </button>
