@@ -306,7 +306,7 @@ const KycDetails = () => {
                   <button
                     type="button"
                     onClick={handleLocation}
-                    className={`${styles.locate_btn} d-flex align-items-center me-auto my-2 mt-3`}
+                    className={`${styles.locate_btn} d-flex align-items-center me-auto my-2 mt-3 ms-1`}
                   >
                     <LocationOnIcon className="mb-1 me-1" /> Locate me
                   </button>
