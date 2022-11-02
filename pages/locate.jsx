@@ -3,18 +3,26 @@ import styles from "../styles/locate.module.css";
 import { useRouter } from "next/router";
 
 const Locate = () => {
-
   const router = useRouter();
 
-  const handleSelectLocation = () =>{
-    sessionStorage.setItem("locationSet",true)
-    router.push('/kycDetails')
-  }
+  const handleSelectLocation = (location) => {
+    sessionStorage.setItem("locationSet", true);
+    sessionStorage.setItem("selectedLocation",JSON.stringify(location));
+    router.push("/kycDetails");
+  };
+
+  const addresses = [
+    "Parshva Complex, Ellora Park, Vadodara, 390007",
+    "Nagdevi Street, Nagdevi, Mumbai, 400003",
+    "Parking lot no.2, Pune Airport, 382007",
+  ];
 
   return (
     <div className="row">
       <div className="mx-auto col-xxl-6 col-xl-9 col-lg-8 col-md-10 col-sm-12 col-12">
-        <h4 className={`${styles.locate_current} col-xxl-10 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto`}>
+        <h4
+          className={`${styles.locate_current} col-xxl-10 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto`}
+        >
           <svg viewBox="0 0 24 24">
             <path
               fill="currentColor"
@@ -47,52 +55,50 @@ const Locate = () => {
           </h4>{" "}
         </div>
         <div className="col-xxl-8 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
-          <h2 className={styles.locate_suggestions}>Recently Searched Locations</h2>
-          <h4 className={styles.locate_head} onClick={handleSelectLocation}>
-            {" "}
-            <svg viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M12 4C14.2 4 16 5.8 16 8C16 10.1 13.9 13.5 12 15.9C10.1 13.4 8 10.1 8 8C8 5.8 9.8 4 12 4M12 2C8.7 2 6 4.7 6 8C6 12.5 12 19 12 19S18 12.4 18 8C18 4.7 15.3 2 12 2M12 6C10.9 6 10 6.9 10 8S10.9 10 12 10 14 9.1 14 8 13.1 6 12 6M20 19C20 21.2 16.4 23 12 23S4 21.2 4 19C4 17.7 5.2 16.6 7.1 15.8L7.7 16.7C6.7 17.2 6 17.8 6 18.5C6 19.9 8.7 21 12 21S18 19.9 18 18.5C18 17.8 17.3 17.2 16.2 16.7L16.8 15.8C18.8 16.6 20 17.7 20 19Z"
-              />
-            </svg>
-            <span>Parking lot no.2, Pune Airport</span>{" "}
-          </h4>
-          <hr />
-          <h4 className={styles.locate_head} onClick={handleSelectLocation}>
-            {" "}
-            <svg viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M12 4C14.2 4 16 5.8 16 8C16 10.1 13.9 13.5 12 15.9C10.1 13.4 8 10.1 8 8C8 5.8 9.8 4 12 4M12 2C8.7 2 6 4.7 6 8C6 12.5 12 19 12 19S18 12.4 18 8C18 4.7 15.3 2 12 2M12 6C10.9 6 10 6.9 10 8S10.9 10 12 10 14 9.1 14 8 13.1 6 12 6M20 19C20 21.2 16.4 23 12 23S4 21.2 4 19C4 17.7 5.2 16.6 7.1 15.8L7.7 16.7C6.7 17.2 6 17.8 6 18.5C6 19.9 8.7 21 12 21S18 19.9 18 18.5C18 17.8 17.3 17.2 16.2 16.7L16.8 15.8C18.8 16.6 20 17.7 20 19Z"
-              />
-            </svg>
-            <span>Parking lot no.2, Pune Airport</span>{" "}
-          </h4>
+          <h2 className={styles.locate_suggestions}>
+            Recently Searched Locations
+          </h2>
+          {addresses.map((curr, index) => (
+            <div key={index}>
+              <h4
+                className={styles.locate_head}
+                onClick={() => handleSelectLocation(curr)}
+              >
+                {" "}
+                <svg viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 4C14.2 4 16 5.8 16 8C16 10.1 13.9 13.5 12 15.9C10.1 13.4 8 10.1 8 8C8 5.8 9.8 4 12 4M12 2C8.7 2 6 4.7 6 8C6 12.5 12 19 12 19S18 12.4 18 8C18 4.7 15.3 2 12 2M12 6C10.9 6 10 6.9 10 8S10.9 10 12 10 14 9.1 14 8 13.1 6 12 6M20 19C20 21.2 16.4 23 12 23S4 21.2 4 19C4 17.7 5.2 16.6 7.1 15.8L7.7 16.7C6.7 17.2 6 17.8 6 18.5C6 19.9 8.7 21 12 21S18 19.9 18 18.5C18 17.8 17.3 17.2 16.2 16.7L16.8 15.8C18.8 16.6 20 17.7 20 19Z"
+                  />
+                </svg>
+                <span>{curr}</span>{" "}
+              </h4>
+              {index !== addresses.length-1 && <hr />}
+            </div>
+          ))}
         </div>
         <div className="col-xxl-10 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto">
-          <h2 className={styles.locate_suggestions}>Suggested Pickup Locations</h2>
-          <h4 className={styles.locate_head} onClick={handleSelectLocation}>
-            {" "}
-            <svg viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M12 4C14.2 4 16 5.8 16 8C16 10.1 13.9 13.5 12 15.9C10.1 13.4 8 10.1 8 8C8 5.8 9.8 4 12 4M12 2C8.7 2 6 4.7 6 8C6 12.5 12 19 12 19S18 12.4 18 8C18 4.7 15.3 2 12 2M12 6C10.9 6 10 6.9 10 8S10.9 10 12 10 14 9.1 14 8 13.1 6 12 6M20 19C20 21.2 16.4 23 12 23S4 21.2 4 19C4 17.7 5.2 16.6 7.1 15.8L7.7 16.7C6.7 17.2 6 17.8 6 18.5C6 19.9 8.7 21 12 21S18 19.9 18 18.5C18 17.8 17.3 17.2 16.2 16.7L16.8 15.8C18.8 16.6 20 17.7 20 19Z"
-              />
-            </svg>
-            <span>Parking lot no.2, Pune Airport</span>{" "}
-          </h4>{" "}
-          <hr />
-          <h4 className={styles.locate_head} onClick={handleSelectLocation}>
-            {" "}
-            <svg viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M12 4C14.2 4 16 5.8 16 8C16 10.1 13.9 13.5 12 15.9C10.1 13.4 8 10.1 8 8C8 5.8 9.8 4 12 4M12 2C8.7 2 6 4.7 6 8C6 12.5 12 19 12 19S18 12.4 18 8C18 4.7 15.3 2 12 2M12 6C10.9 6 10 6.9 10 8S10.9 10 12 10 14 9.1 14 8 13.1 6 12 6M20 19C20 21.2 16.4 23 12 23S4 21.2 4 19C4 17.7 5.2 16.6 7.1 15.8L7.7 16.7C6.7 17.2 6 17.8 6 18.5C6 19.9 8.7 21 12 21S18 19.9 18 18.5C18 17.8 17.3 17.2 16.2 16.7L16.8 15.8C18.8 16.6 20 17.7 20 19Z"
-              />
-            </svg>
-            <span>Parking lot no.2, Pune Airport</span>{" "}
-          </h4>
+          <h2 className={styles.locate_suggestions}>
+            Suggested Pickup Locations
+          </h2>
+          {addresses.map((curr, index) => (
+            index < addresses.length-1 && <div key={index}>
+              <h4
+                className={styles.locate_head}
+                onClick={() => handleSelectLocation(curr)}
+              >
+                {" "}
+                <svg viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 4C14.2 4 16 5.8 16 8C16 10.1 13.9 13.5 12 15.9C10.1 13.4 8 10.1 8 8C8 5.8 9.8 4 12 4M12 2C8.7 2 6 4.7 6 8C6 12.5 12 19 12 19S18 12.4 18 8C18 4.7 15.3 2 12 2M12 6C10.9 6 10 6.9 10 8S10.9 10 12 10 14 9.1 14 8 13.1 6 12 6M20 19C20 21.2 16.4 23 12 23S4 21.2 4 19C4 17.7 5.2 16.6 7.1 15.8L7.7 16.7C6.7 17.2 6 17.8 6 18.5C6 19.9 8.7 21 12 21S18 19.9 18 18.5C18 17.8 17.3 17.2 16.2 16.7L16.8 15.8C18.8 16.6 20 17.7 20 19Z"
+                  />
+                </svg>
+                <span>{curr}</span>{" "}
+              </h4>
+              {index !== addresses.length-2 && <hr />}
+            </div>
+          ))}
         </div>
       </div>
     </div>

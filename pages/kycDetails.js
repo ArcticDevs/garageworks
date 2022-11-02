@@ -42,6 +42,8 @@ const KycDetails = () => {
 
   const [displayFields, setDisplayFields] = useState(false);
 
+  const [selectedAddress, setSelectedAddress] = useState("");
+
   // const [showOtpField, setShowOtpField] = useState(false);
 
   // const [otpValue, setOtpValue] = useState("");
@@ -66,14 +68,15 @@ const KycDetails = () => {
   // }, [navigator.geolocation])
 
   useEffect(() => {
-    if (sessionStorage.getItem("locationSet")) {
+    if (
+      sessionStorage.getItem("locationSet") &&
+      sessionStorage.getItem("selectedLocation")
+    ) {
       setDisplayFields(sessionStorage.getItem("locationSet"));
-      setFormData({
-        ...formData,
-        pincode: "382007",
-        house: "Parking lot no.2",
-        road: "Pune Airport Road",
-      });
+
+      setSelectedAddress(
+        JSON.parse(sessionStorage.getItem("selectedLocation"))
+      );
     }
   }, []);
 
@@ -253,8 +256,9 @@ const KycDetails = () => {
             styles.borderRadius
           } card shadow px-3 pt-2 ${displayFields ? "pb-1" : "pb-3"}`}
         >
-          <div className={`${styles.address_head} mb-2`}>
+          <div className={`${styles.address_head} mb-0 d-flex flex-column align-items-start`}>
             <h3>Address</h3>
+            {selectedAddress !== "" && <span>{selectedAddress}</span>}
           </div>
           {allowLocation && (
             <h3 className={styles.invalid}>Please allow Location Access</h3>
@@ -291,17 +295,20 @@ const KycDetails = () => {
               </FormControl>
             )}
             <Link href="/locate">
-              <span id="pincode" className={`${styles.mute} d-flex align-items-center justify-content-center flex-column-reverse`}>
+              <span
+                id="pincode"
+                className={`${styles.mute} d-flex align-items-center justify-content-center flex-column-reverse`}
+              >
                 Dont know your pincode? Click here to find your area
                 <Link href="/locate">
-              <button
-                type="button"
-                onClick={handleLocation}
-                className={`${styles.locate_btn} d-flex align-items-center me-auto my-2 mt-2`}
-              >
-                <LocationOnIcon className="mb-1 me-1" /> Locate me
-              </button>
-            </Link>
+                  <button
+                    type="button"
+                    onClick={handleLocation}
+                    className={`${styles.locate_btn} d-flex align-items-center me-auto my-2 mt-2`}
+                  >
+                    <LocationOnIcon className="mb-1 me-1" /> Locate me
+                  </button>
+                </Link>
               </span>
             </Link>
             {/* <span className={`${styles.mute}`}>Don't know your pincode? Click here to find your area</span> */}
@@ -357,7 +364,6 @@ const KycDetails = () => {
               />
             )}
           </div>
-          
         </div>
         <div className={`${styles.mute} mt-3 text-center fw-bold`}>
           Your data is safe. We like spanners & not spammers!
