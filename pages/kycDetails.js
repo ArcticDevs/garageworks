@@ -74,9 +74,11 @@ const KycDetails = () => {
     ) {
       setDisplayFields(sessionStorage.getItem("locationSet"));
 
-      setSelectedAddress(
-        JSON.parse(sessionStorage.getItem("selectedLocation"))
-      );
+      setSelectedAddress(`
+        ${JSON.parse(sessionStorage.getItem("selectedLocation")).locality}, ${JSON.parse(sessionStorage.getItem("selectedLocation")).city}, ${JSON.parse(sessionStorage.getItem("selectedLocation")).pincode}
+      `);
+
+      setFormData({ ...formData, pincode: JSON.parse(sessionStorage.getItem("selectedLocation")).pincode })
     }
   }, []);
 
@@ -304,7 +306,7 @@ const KycDetails = () => {
                   <button
                     type="button"
                     onClick={handleLocation}
-                    className={`${styles.locate_btn} d-flex align-items-center me-auto my-2 mt-2`}
+                    className={`${styles.locate_btn} d-flex align-items-center me-auto my-2 mt-3`}
                   >
                     <LocationOnIcon className="mb-1 me-1" /> Locate me
                   </button>
