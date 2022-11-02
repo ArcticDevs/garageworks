@@ -22,8 +22,6 @@ const KycDetails = () => {
 
   const { userDetails } = state;
 
-  console.log(state);
-
   const [allowLocation, setAllowLocation] = useState(false);
   const [userLocation, setUserLocation] = useState({
     lat: null,
