@@ -299,7 +299,7 @@ const KycDetails = () => {
                 onClick={handleLocation}
                 className={`${styles.locate_btn} d-flex align-items-center me-auto my-2 mt-2`}
               >
-                <LocationOnIcon className="mb-1 me-1" /> Locate you?
+                <LocationOnIcon className="mb-1 me-1" /> Locate me
               </button>
             </Link>
               </span>
