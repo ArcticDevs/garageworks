@@ -64,20 +64,20 @@ const KycDetails = () => {
 
   useEffect(() => {
     if (
-      sessionStorage.getItem("locationSet") &&
-      sessionStorage.getItem("selectedLocation")
+      localStorage.getItem("locationSet") &&
+      localStorage.getItem("selectedLocation")
     ) {
-      setDisplayFields(sessionStorage.getItem("locationSet"));
+      setDisplayFields(localStorage.getItem("locationSet"));
 
       setSelectedAddress(`
-        ${JSON.parse(sessionStorage.getItem("selectedLocation")).locality}, ${
-        JSON.parse(sessionStorage.getItem("selectedLocation")).city
-      }, ${JSON.parse(sessionStorage.getItem("selectedLocation")).pincode}
+        ${JSON.parse(localStorage.getItem("selectedLocation")).locality}, ${
+        JSON.parse(localStorage.getItem("selectedLocation")).city
+      }, ${JSON.parse(localStorage.getItem("selectedLocation")).pincode}
       `);
 
       setFormData({
         ...formData,
-        pincode: JSON.parse(sessionStorage.getItem("selectedLocation")).pincode,
+        pincode: JSON.parse(localStorage.getItem("selectedLocation")).pincode,
       });
     }
   }, []);
@@ -195,7 +195,7 @@ const KycDetails = () => {
                 name="email"
                 value={email}
                 onChange={handleOnchange}
-                className="p-1 col-10"
+                className="p-1 col-12"
               />
               <button
                 type="button"
@@ -203,8 +203,14 @@ const KycDetails = () => {
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
                 title="*Invoice & Follow-on estimates will be sent on email"
+                style={{ position: "absolute", right: "-10px" }}
               >
-                !
+                <svg style={{ width: "16px" }} viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z"
+                  />
+                </svg>
               </button>
             </FormControl>
 
@@ -233,7 +239,7 @@ const KycDetails = () => {
                 name="number"
                 value={number}
                 onChange={handleOnchange}
-                className="p-1 col-10"
+                className="p-1 col-12"
                 type="number"
               />
               <button
@@ -242,8 +248,14 @@ const KycDetails = () => {
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
                 title="*Invoice & Follow-on estimates will be sent on email"
+                style={{ position: "absolute", right: "-10px" }}
               >
-                !
+                <svg style={{ width: "16px" }} viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z"
+                  />
+                </svg>
               </button>
             </FormControl>
 
@@ -261,8 +273,21 @@ const KycDetails = () => {
           <div
             className={`${styles.address_head} mb-0 d-flex flex-column align-items-start`}
           >
-            <h3>Address</h3>
-            {selectedAddress !== "" && <span>{selectedAddress}</span>}
+            <div className="col-12 d-flex justify-content-between mb-1">
+              <h3>Address</h3>{" "}
+              {displayFields && (
+                <span
+                  className="badge rounded-pill"
+                  style={{ backgroundColor: "#bfe8f8", color: "#000" }}
+                  onClick={() => {
+                    router.push("/locate");
+                  }}
+                >
+                  Change address
+                </span>
+              )}
+            </div>
+            {selectedAddress !== "" && <span className='mb-1'>{selectedAddress}</span>}
           </div>
           {allowLocation && (
             <h3 className={styles.invalid}>Please allow Location Access</h3>
@@ -279,45 +304,31 @@ const KycDetails = () => {
               onChange={handleOnchange}
               required
             /> */}
-            {displayFields && (
+            {/* {displayFields && (
+              
+            )} */}
+            {!displayFields && (
               <div>
-              <FormControl variant="standard" className="col-12 mb-2">
-                <Input
-                  id="input-with-icon-adornment"
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <GpsNotFixedIcon />
-                    </InputAdornment>
-                  }
-                  placeholder="Enter your pincode"
-                  autoComplete="off"
-                  name="pincode"
-                  value={pincode}
-                  onChange={handleOnchange}
-                  type="number"
-                  className="p-1"
-                />
-              </FormControl>
+                <Link href="/locate">
+                  <span
+                    id="pincode"
+                    className={`${styles.mute} d-flex align-items-center justify-content-center flex-column-reverse`}
+                  >
+                    <Link href="/locate">
+                      <button
+                        type="button"
+                        onClick={handleLocation}
+                        className={`${styles.locate_btn} d-flex align-items-center me-auto my-2 mt-3 ms-1`}
+                      >
+                        <LocationOnIcon className="mb-1 me-1" /> Click here to
+                        add address
+                      </button>
+                    </Link>
+                  </span>
+                </Link>
               </div>
             )}
-            <div><Link href="/locate">
-              <span
-                id="pincode"
-                className={`${styles.mute} d-flex align-items-center justify-content-center flex-column-reverse`}
-              >
-                Dont know your pincode? Click here to find your area
-                <Link href="/locate">
-                  <button
-                    type="button"
-                    onClick={handleLocation}
-                    className={`${styles.locate_btn} d-flex align-items-center me-auto my-2 mt-3 ms-1`}
-                  >
-                    <LocationOnIcon className="mb-1 me-1" /> Locate me
-                  </button>
-                </Link>
-              </span>
-            </Link></div>
-            
+
             {/* <span className={`${styles.mute}`}>Don't know your pincode? Click here to find your area</span> */}
             {/* <input
               type="text"
@@ -329,26 +340,7 @@ const KycDetails = () => {
               onChange={handleOnchange}
               required
             /> */}
-            {displayFields && (
-              <div>
-              <FormControl variant="standard" className="col-12 my-2">
-                <Input
-                  id="input-with-icon-adornment"
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <HomeIcon />
-                    </InputAdornment>
-                  }
-                  placeholder="House/ Flat/ Office No."
-                  autoComplete="off"
-                  name="house"
-                  value={house}
-                  onChange={handleOnchange}
-                  className="p-1"
-                />
-              </FormControl>
-              </div>
-            )}
+
             {/* <textarea
               rows={1}
               type="text"
@@ -362,16 +354,16 @@ const KycDetails = () => {
             /> */}
             {displayFields && (
               <div>
-              <TextareaAutosize
-                type="text"
-                aria-label="minimum height"
-                minRows={1}
-                placeholder="Road Name/ Area/ Colony"
-                value={road}
-                name="road"
-                onChange={handleOnchange}
-                className="p-2 col-12 my-2 border rounded"
-              />
+                <TextareaAutosize
+                  type="text"
+                  aria-label="minimum height"
+                  minRows={1}
+                  placeholder="Road Name/ Area/ Colony"
+                  value={road}
+                  name="road"
+                  onChange={handleOnchange}
+                  className="p-2 col-12 border rounded"
+                />
               </div>
             )}
           </div>

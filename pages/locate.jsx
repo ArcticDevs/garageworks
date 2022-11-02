@@ -6,8 +6,8 @@ const Locate = () => {
   const router = useRouter();
 
   const handleSelectLocation = (location) => {
-    sessionStorage.setItem("locationSet", true);
-    sessionStorage.setItem("selectedLocation",JSON.stringify(location));
+    localStorage.setItem("locationSet", true);
+    localStorage.setItem("selectedLocation",JSON.stringify(location));
     router.push("/kycDetails");
   };
 
