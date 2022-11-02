@@ -281,40 +281,21 @@ const KycDetails = () => {
               onChange={handleOnchange}
               required
             /> */}
-            {displayFields && (
-              <div>
-              <FormControl variant="standard" className="col-12 mb-2">
-                <Input
-                  id="input-with-icon-adornment"
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <GpsNotFixedIcon />
-                    </InputAdornment>
-                  }
-                  placeholder="Enter your pincode"
-                  autoComplete="off"
-                  name="pincode"
-                  value={pincode}
-                  onChange={handleOnchange}
-                  type="number"
-                  className="p-1"
-                />
-              </FormControl>
-              </div>
-            )}
+            {/* {displayFields && (
+              
+            )} */}
             <div><Link href="/locate">
               <span
                 id="pincode"
                 className={`${styles.mute} d-flex align-items-center justify-content-center flex-column-reverse`}
               >
-                Dont know your pincode? Click here to find your area
                 <Link href="/locate">
                   <button
                     type="button"
                     onClick={handleLocation}
                     className={`${styles.locate_btn} d-flex align-items-center me-auto my-2 mt-3 ms-1`}
                   >
-                    <LocationOnIcon className="mb-1 me-1" /> Locate me
+                    <LocationOnIcon className="mb-1 me-1" /> Click here to add address
                   </button>
                 </Link>
               </span>
@@ -331,26 +312,7 @@ const KycDetails = () => {
               onChange={handleOnchange}
               required
             /> */}
-            {displayFields && (
-              <div>
-              <FormControl variant="standard" className="col-12 my-2">
-                <Input
-                  id="input-with-icon-adornment"
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <HomeIcon />
-                    </InputAdornment>
-                  }
-                  placeholder="House/ Flat/ Office No."
-                  autoComplete="off"
-                  name="house"
-                  value={house}
-                  onChange={handleOnchange}
-                  className="p-1"
-                />
-              </FormControl>
-              </div>
-            )}
+            
             {/* <textarea
               rows={1}
               type="text"
@@ -372,7 +334,7 @@ const KycDetails = () => {
                 value={road}
                 name="road"
                 onChange={handleOnchange}
-                className="p-2 col-12 my-2 border rounded"
+                className="p-2 col-12 border rounded"
               />
               </div>
             )}

@@ -87,13 +87,14 @@ a {
     position: absolute;
     top: -50px;
     left: -140px;
-    color: #000;
+    color: #212529;
     font-weight: bold;
-    background-color: #01B9FF;
+    background-color: #808080;
     border: 0px solid;
-    padding: 3px;
-    border-radius: 20px;
-    width: 200px;
+    padding: 6px;
+    border-radius: 10px;
+    width: 210px;
+    
 
 
   }
