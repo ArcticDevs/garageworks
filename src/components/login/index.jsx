@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
 import { Context } from "../../context";
 import styles from "../../../styles/login.module.css";
-import OtpInput from "react-otp-input";
-// import toast from "../Toast";
 import { useRouter } from "next/router";
-// import Link from 'next/link'
+import axios from "axios";
 
 const Login = () => {
   const { state, changeFunc } = useContext(Context);
@@ -18,6 +16,7 @@ const Login = () => {
   const [number, setNumber] = useState("");
   const [otp, setOTP] = useState("");
   const [showOTP, setShowOTP] = useState(false);
+  const [resData, setResData] = useState();
 
   useEffect(() => {
     if (redirect === "kyc") {
@@ -29,10 +28,7 @@ const Login = () => {
   const handleOnchangeNumber = (e) => {
     setShowErrorNum(false);
 
-    if (e.target.value.length === 10 && e.target.value !== "1234567899") {
-      setShowErrorNum(true);
-      setNumber(e.target.value.slice(0, 10));
-    } else if (e.target.value.length > 10) {
+    if (e.target.value.length > 10) {
       setNumber(e.target.value.slice(0, 10));
     } else {
       setNumber(e.target.value);
@@ -58,13 +54,9 @@ const Login = () => {
     setShowErrorNum(false);
     setShowErrorOtp(false);
     if (continueNum === 0 && !showErrorNum) {
-      setContinueNum(1);
-      setOTP("");
-      setTimer(15);
+      handleSendingOTP();
     } else if (continueNum === 1 && !showErrorNum && !showErrorOtp) {
-      setContinueNum(0);
-      changeFunc.modalShow(false);
-      router.push("/kycDetails");
+      handleVerifyOTP()      
     }
   };
 
@@ -78,6 +70,66 @@ const Login = () => {
   useEffect(() => {
     timer > 0 && setTimeout(timeOutCallback, 1000);
   }, [timer, timeOutCallback]);
+
+  //login verify with number
+  const handleSendingOTP = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("mobile", number);
+
+      const res = await axios.post(
+        "https://beta.garageworks.in/webapi/sendotp",
+        formData
+      );
+
+      // console.log(res.data.result.data)
+
+      setResData(res.data.result.data);
+
+      localStorage.setItem(
+        "login_customer",
+        JSON.stringify(res.data.result.data)
+      );
+
+      if ( res.status && res.data.result.data.customer_type === "new") {
+        changeFunc.modalShow(false);
+        router.push("/kycDetails");
+      } else {
+        setContinueNum(1);
+        setOTP("");
+        setTimer(15);
+      }
+    } catch (error) {
+      setShowErrorNum(false);
+      console.log(error);
+    }
+  };
+
+  //login verify with otp
+  const handleVerifyOTP = async() =>{
+    try {
+      const formData = new FormData();
+      formData.append("mobile", number);
+      formData.append("token",resData.token)
+      formData.append("customer_id",resData.customer_id)
+      formData.append("otp",otp)
+
+      const res = await axios.post(
+        "https://beta.garageworks.in/webapi/verifyotp",
+        formData
+      );
+
+      console.log(res.data.result.data)
+
+      setContinueNum(0);
+      changeFunc.modalShow(false);
+      router.push("/kycDetails");
+      
+    } catch (error) {
+      setShowErrorOtp(false);
+      console.log(error);
+    }
+  }
 
   return (
     <div className={`${styles.login} col-12 d-flex flex-column px-3`}>
@@ -172,20 +224,29 @@ const Login = () => {
               letterSpacing: "0.8px",
             }}
           >
-            <h1 style={{ fontSize: "10px !important",textShadow: "0 0 0 #000" }}>
+            <h1
+              style={{ fontSize: "10px !important", textShadow: "0 0 0 #000" }}
+            >
               Sent OTP to {number}
             </h1>
           </div>
           <div className="w-100 d-flex justify-content-between mt-4">
             {timer > 0 ? (
-              <h6 className="text-muted" style={{ fontSize: "14px",textShadow: "0 0 0 #000" }}>
+              <h6
+                className="text-muted"
+                style={{ fontSize: "14px", textShadow: "0 0 0 #000" }}
+              >
                 Resend OTP in 00:{timer < 10 && "0"}
                 {timer}
               </h6>
             ) : (
               <h6
                 className="text-danger"
-                style={{ cursor: "pointer", fontSize: "14px",textShadow: "0 0 0 #000"}}
+                style={{
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  textShadow: "0 0 0 #000",
+                }}
                 onClick={() => setTimer(15)}
               >
                 {" "}
@@ -204,7 +265,11 @@ const Login = () => {
             )}
             <h6
               className="text-danger"
-              style={{ cursor: "pointer", fontSize: "14px",textShadow: "0 0 0 #000" }}
+              style={{
+                cursor: "pointer",
+                fontSize: "14px",
+                textShadow: "0 0 0 #000",
+              }}
               onClick={() => setContinueNum(0)}
             >
               Change Number

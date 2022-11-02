@@ -5,9 +5,6 @@ import Modal from './Modal'
 
 const Navbar = () => {
 	const { state, changeFunc } = useContext(Context);
-	console.log(state.modal)
-
-
 	return (
 		<div>
 			<nav className="navbar navbar-expand-lg bg-light">
