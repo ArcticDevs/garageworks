@@ -73,7 +73,7 @@ const KycDetails = () => {
         pincode: "382007",
         house: "Parking lot no.2",
         road: "Pune Airport Road",
-      })
+      });
     }
   }, []);
 
@@ -110,8 +110,7 @@ const KycDetails = () => {
     console.log(formData);
   };
 
-  const handleLocation = () => {
-  };
+  const handleLocation = () => {};
 
   return (
     <div
@@ -256,15 +255,6 @@ const KycDetails = () => {
         >
           <div className={`${styles.address_head} mb-2`}>
             <h3>Address</h3>
-            <Link href="/locate">
-              <button
-                type="button"
-                onClick={handleLocation}
-                className="d-flex align-items-center"
-              >
-                <LocationOnIcon className="mb-1 me-1" /> Locate you?
-              </button>
-            </Link>
           </div>
           {allowLocation && (
             <h3 className={styles.invalid}>Please allow Location Access</h3>
@@ -281,26 +271,37 @@ const KycDetails = () => {
               onChange={handleOnchange}
               required
             /> */}
-            <FormControl variant="standard" className="col-12 mb-2">
-              <Input
-                id="input-with-icon-adornment"
-                startAdornment={
-                  <InputAdornment position="start">
-                    <GpsNotFixedIcon />
-                  </InputAdornment>
-                }
-                placeholder="Enter your pincode"
-                autoComplete="off"
-                name="pincode"
-                value={pincode}
-                onChange={handleOnchange}
-                type="number"
-                className="p-1"
-              />
-            </FormControl>
+            {displayFields && (
+              <FormControl variant="standard" className="col-12 mb-2">
+                <Input
+                  id="input-with-icon-adornment"
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <GpsNotFixedIcon />
+                    </InputAdornment>
+                  }
+                  placeholder="Enter your pincode"
+                  autoComplete="off"
+                  name="pincode"
+                  value={pincode}
+                  onChange={handleOnchange}
+                  type="number"
+                  className="p-1"
+                />
+              </FormControl>
+            )}
             <Link href="/locate">
-              <span id="pincode" className={styles.mute}>
+              <span id="pincode" className={`${styles.mute} d-flex align-items-center justify-content-center`}>
                 Dont know your pincode? Click here to find your area
+                <Link href="/locate">
+              <button
+                type="button"
+                onClick={handleLocation}
+                className={`${styles.locate_btn} d-flex align-items-center ms-2`}
+              >
+                <LocationOnIcon className="mb-1 me-1" /> Locate you?
+              </button>
+            </Link>
               </span>
             </Link>
             {/* <span className={`${styles.mute}`}>Don't know your pincode? Click here to find your area</span> */}
@@ -356,6 +357,7 @@ const KycDetails = () => {
               />
             )}
           </div>
+          
         </div>
         <div className={`${styles.mute} mt-3 text-center fw-bold`}>
           Your data is safe. We like spanners & not spammers!
