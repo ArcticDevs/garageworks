@@ -9,7 +9,7 @@ const Navbar = () => {
 
 
 	return (
-		<>
+		<div>
 			<nav className="navbar navbar-expand-lg bg-light">
 				<div className="container-fluid">
 					<Link href="/" passHref>
@@ -23,7 +23,7 @@ const Navbar = () => {
 				</div>
 			</nav>
 			<Modal show={state.modal} onClose={() => changeFunc.modalShow(false)} />
-		</>
+		</div>
 	)
 }
 

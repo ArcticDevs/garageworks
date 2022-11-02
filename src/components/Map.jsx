@@ -18,6 +18,7 @@ function Map({ userAddress }) {
     };
 
     return (
+        <div>
         <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_MAP_API_KEY}>
             <GoogleMap
                 mapContainerStyle={containerStyle}
@@ -29,6 +30,7 @@ function Map({ userAddress }) {
                 />
             </GoogleMap>
         </LoadScript>
+        </div>
     )
 }
 

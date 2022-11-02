@@ -6,12 +6,9 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import NavigationButton from "../src/components/NavigationButton";
 import styles1 from "../styles/login.module.css";
-import Box from "@mui/material/Box";
 import Input from "@mui/material/Input";
-import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/TextField";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import LocalPostOfficeIcon from "@mui/icons-material/LocalPostOffice";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -75,10 +72,15 @@ const KycDetails = () => {
       setDisplayFields(sessionStorage.getItem("locationSet"));
 
       setSelectedAddress(`
-        ${JSON.parse(sessionStorage.getItem("selectedLocation")).locality}, ${JSON.parse(sessionStorage.getItem("selectedLocation")).city}, ${JSON.parse(sessionStorage.getItem("selectedLocation")).pincode}
+        ${JSON.parse(sessionStorage.getItem("selectedLocation")).locality}, ${
+        JSON.parse(sessionStorage.getItem("selectedLocation")).city
+      }, ${JSON.parse(sessionStorage.getItem("selectedLocation")).pincode}
       `);
 
-      setFormData({ ...formData, pincode: JSON.parse(sessionStorage.getItem("selectedLocation")).pincode })
+      setFormData({
+        ...formData,
+        pincode: JSON.parse(sessionStorage.getItem("selectedLocation")).pincode,
+      });
     }
   }, []);
 
@@ -258,7 +260,9 @@ const KycDetails = () => {
             styles.borderRadius
           } card shadow px-3 pt-2 ${displayFields ? "pb-1" : "pb-3"}`}
         >
-          <div className={`${styles.address_head} mb-0 d-flex flex-column align-items-start`}>
+          <div
+            className={`${styles.address_head} mb-0 d-flex flex-column align-items-start`}
+          >
             <h3>Address</h3>
             {selectedAddress !== "" && <span>{selectedAddress}</span>}
           </div>
@@ -278,6 +282,7 @@ const KycDetails = () => {
               required
             /> */}
             {displayFields && (
+              <div>
               <FormControl variant="standard" className="col-12 mb-2">
                 <Input
                   id="input-with-icon-adornment"
@@ -295,8 +300,9 @@ const KycDetails = () => {
                   className="p-1"
                 />
               </FormControl>
+              </div>
             )}
-            <Link href="/locate">
+            <div><Link href="/locate">
               <span
                 id="pincode"
                 className={`${styles.mute} d-flex align-items-center justify-content-center flex-column-reverse`}
@@ -312,7 +318,8 @@ const KycDetails = () => {
                   </button>
                 </Link>
               </span>
-            </Link>
+            </Link></div>
+            
             {/* <span className={`${styles.mute}`}>Don't know your pincode? Click here to find your area</span> */}
             {/* <input
               type="text"
@@ -325,6 +332,7 @@ const KycDetails = () => {
               required
             /> */}
             {displayFields && (
+              <div>
               <FormControl variant="standard" className="col-12 my-2">
                 <Input
                   id="input-with-icon-adornment"
@@ -341,6 +349,7 @@ const KycDetails = () => {
                   className="p-1"
                 />
               </FormControl>
+              </div>
             )}
             {/* <textarea
               rows={1}
@@ -354,6 +363,7 @@ const KycDetails = () => {
               required
             /> */}
             {displayFields && (
+              <div>
               <TextareaAutosize
                 type="text"
                 aria-label="minimum height"
@@ -364,6 +374,7 @@ const KycDetails = () => {
                 onChange={handleOnchange}
                 className="p-2 col-12 my-2 border rounded"
               />
+              </div>
             )}
           </div>
         </div>

@@ -73,3 +73,28 @@ a {
   }
   
 }
+
+@media (pointer: coarse), (hover: none) {
+  [title] {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    width: 200px;
+
+  }
+  [title]:focus::after {
+    content: attr(title);
+    position: absolute;
+    top: -50px;
+    left: -140px;
+    color: #000;
+    font-weight: bold;
+    background-color: #01B9FF;
+    border: 0px solid;
+    padding: 3px;
+    border-radius: 20px;
+    width: 200px;
+
+
+  }
+}

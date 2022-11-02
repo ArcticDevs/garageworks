@@ -30,6 +30,7 @@ export default function StaticDatePickerDemo() {
         <h4 className="text-center my-2 fw-bold">
           Select Preferred Date and Time
         </h4>
+        <div>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <StaticDatePicker
             displayStaticWrapperAs="desktop"
@@ -44,6 +45,7 @@ export default function StaticDatePickerDemo() {
             className="mt-2"
           />
         </LocalizationProvider>
+        </div>
       </div>
       <div className="col-xxl-4 col-xl-6 col-lg-8 col-md-10 col-sm-12 col-12 mx-auto my-1 ">
         <h3 className={`${styles.date_head} my-2`}>slots available </h3>
